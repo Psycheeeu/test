@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tv-bg: #0a0a0f;
+  --color-tv-dark: #111118;
+  --color-tv-panel: #1a1a25;
+  --color-tv-border: #2a2a3a;
+  --color-tv-accent: #3b82f6;
+  --color-tv-accent2: #8b5cf6;
+  --color-tv-red: #ef4444;
+  --color-tv-green: #22c55e;
+  --color-tv-yellow: #eab308;
+  --color-tv-orange: #f97316;
+  --color-tv-cyan: #06b6d4;
+}
+
+@font-face {
+  font-family: 'Digital';
+  src: local('Courier New');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-tv-bg);
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CRT scanline effect */
+.crt-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  z-index: 5;
+}
+
+/* TV glow effect */
+.tv-glow {
+  box-shadow: 
+    0 0 60px rgba(59, 130, 246, 0.15),
+    0 0 120px rgba(59, 130, 246, 0.08),
+    inset 0 0 80px rgba(0, 0, 0, 0.3);
+}
+
+/* Channel transition */
+.channel-transition {
+  animation: channelSwitch 0.3s ease-out;
+}
+
+@keyframes channelSwitch {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: brightness(2) saturate(0);
+  }
+  30% {
+    opacity: 1;
+    filter: brightness(1.5) saturate(0.5);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1) saturate(1);
+  }
+}
+
+/* Info bar animation */
+.info-slide {
+  animation: infoSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes infoSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Guide slide (left panel) */
+.guide-slide {
+  animation: guideSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes guideSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Options slide (right panel) */
+.options-slide {
+  animation: optionsSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes optionsSlide {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Volume bar */
+.volume-pulse {
+  animation: volumePulse 2s ease-in-out;
+}
+
+@keyframes volumePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Channel number big display */
+.channel-number-display {
+  font-family: 'Courier New', monospace;
+  font-weight: 900;
+  text-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.6),
+    0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+/* Progress bar */
+.progress-glow {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+/* Remote button */
+.remote-btn {
+  transition: all 0.15s ease;
+}
+.remote-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+.remote-btn:active {
+  transform: scale(0.95);
+}
+
+/* Guide channel row */
+.guide-row {
+  transition: all 0.2s ease;
+}
+.guide-row:hover, .guide-row.active {
+  background: rgba(59, 130, 246, 0.15);
+  border-left: 3px solid #3b82f6;
+}
+
+/* Scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 3px;
+}
+
+/* Favorite star */
+.star-active {
+  color: #eab308;
+  filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.5));
+}
+
+/* Signal strength bars */
+.signal-bar {
+  transition: all 0.3s ease;
+}
+
+/* Video element styling */
+video {
+  background: black;
+}
+
+/* Prevent video controls flash */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+/* Ensure video fills container */
+video[poster] {
+  object-fit: cover;
+}
+
+/* Captions */
+video::cue {
+  font-size: 75%;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  padding: 0.18em 0.35em;
+  color: #000;
+  background: #fff;
+}
+
+video::cue(c) {
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: #000;
+  background: #fff;
+}
+
+/* Animation for live badge pulse */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes loadingBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.live-pulse {
+  animation: livePulse 1.5s ease-in-out infinite;
+}
