@@ -56,11 +56,11 @@ export const noScheduleProgram = (channelName: string, genre: string): Program[]
   source: 'none',
 }];
 
-const noTearsProgram = (): Program[] => [{
-  title: 'LEE CHAE YEON - No Tears On The Dancefloor',
+const musicProgram = (): Program[] => [{
+  title: NMIXX - Heavy Serenade',
   startTime: '00:00',
   endTime: '23:59',
-  description: 'No Tears On The Dancefloor is a retro-mood new disco dance-pop song. It blends cinematic sounds with emotional melodies to convey the dualism of being a perfect performer on stage while concealing inner vulnerabilities.',
+  description: 'NMIXX’s Heavy Serenade is one of their most cohesive “MIXX POP” projects so far — emotionally focused, sonically layered, and structurally designed around the idea of love becoming overwhelming in both a beautiful and frightening way.',
   genre: 'Music',
   source: 'none',
 }];
@@ -74,10 +74,10 @@ export const channels: Channel[] = [
     epgId: 'none',
     epgSource: 'none',
     stream: {
-      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/69f3c5be1dfaccdc9546fe49/main.m3u8',
+      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a02526137b9faaace286abd/main.m3u8',
       type: 'hls',
     },
-    programs: noTearsProgram(),
+    programs: musicProgram(),
   },
   {
     number: 2,
