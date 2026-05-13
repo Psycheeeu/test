@@ -176,8 +176,12 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
         }
 
         if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-          keepAudioOn(video);
-          updateStatus('playing');
+          if (!video.paused) {
+            keepAudioOn(video);
+            updateStatus('playing');
+          } else {
+            updateStatus('buffering');
+          }
         } else if (!shouldShowBlockingError(video)) {
           updateStatus('buffering');
         } else {
@@ -681,9 +685,17 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
       const video = videoRef.current;
       if (!video || deferPlayback) return;
       if (video.paused && (hlsRef.current || shakaRef.current || video.src)) {
+        if (channel.number === 1 && channel.stream?.type === 'hls') {
+          try {
+            video.currentTime = 0;
+            hlsRef.current?.startLoad(0);
+          } catch {
+            // The first HLS stream may already be positioned at 0.
+          }
+        }
         startVideoPlayback(video);
       }
-    }, [deferPlayback, startVideoPlayback]);
+    }, [channel.number, channel.stream?.type, deferPlayback, startVideoPlayback]);
 
     // Apply playback-option changes without destroying/reloading the active stream.
     useEffect(() => {
