@@ -16,15 +16,14 @@ export default function App() {
   const [showChannelInfo, setShowChannelInfo] = useState(true);
   const [introLoading, setIntroLoading] = useState(true);
   const [showAndroidControls, setShowAndroidControls] = useState(false);
-  const [introMinimumElapsed, setIntroMinimumElapsed] = useState(false);
+  const [epgReady, setEpgReady] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [favorites, setFavorites] = useState<number[]>([1]);
   const [streamStatus, setStreamStatus] = useState('idle');
   const [streamInfo, setStreamInfo] = useState<StreamInfo>(defaultStreamInfo);
   const [videoSettings, setVideoSettings] = useState<VideoSettings>({
     ...defaultSettings,
-    // Start muted under the intro so the browser allows autoplay/buffering.
-    audioEnabled: false,
+    audioEnabled: true,
   });
   const [lineup, setLineup] = useState<Channel[]>(channels);
   const [adultUnlocked, setAdultUnlocked] = useState(() => sessionStorage.getItem('adultUnlocked') === 'true');
@@ -41,7 +40,12 @@ export default function App() {
   useEffect(() => {
     let cancelled = false;
     loadEpgForChannels(channels).then((updatedLineup) => {
-      if (!cancelled) setLineup(updatedLineup);
+      if (!cancelled) {
+        setLineup(updatedLineup);
+        setEpgReady(true);
+      }
+    }).catch(() => {
+      if (!cancelled) setEpgReady(true);
     });
     return () => {
       cancelled = true;
@@ -67,20 +71,12 @@ export default function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIntroMinimumElapsed(true);
+      setIntroLoading(false);
+      setShowChannelInfo(true);
     }, 7000);
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (!introLoading || !introMinimumElapsed) return;
-    if (streamStatus !== 'playing') return;
-
-    setIntroLoading(false);
-    setVideoSettings((prev) => ({ ...prev, audioEnabled: true }));
-    setShowChannelInfo(true);
-  }, [introLoading, introMinimumElapsed, streamStatus]);
 
   // Handle channel change
   const changeChannel = useCallback(
@@ -290,6 +286,7 @@ export default function App() {
           channel={currentChannel}
           isTransitioning={isTransitioning}
           settings={videoSettings}
+          deferPlayback={introLoading && currentChannelIndex === 0}
           onStatusChange={setStreamStatus}
           onStreamInfoChange={setStreamInfo}
         />
@@ -448,6 +445,11 @@ export default function App() {
               <div className="h-full w-full origin-left animate-[loadingBar_7s_ease-in-out_forwards] bg-white" />
             </div>
             <div className="mt-4 text-[10px] font-black uppercase tracking-[0.35em] text-white/25">Loading</div>
+            <div className="mt-3 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.22em] text-white/15">
+              <span>{epgReady ? 'EPG ready' : 'Loading EPG'}</span>
+              <span>/</span>
+              <span>{streamStatus === 'playing' ? 'Stream ready' : 'Buffering stream'}</span>
+            </div>
             <div className="absolute bottom-[70px] text-[11px] font-black text-white/10">Owned by Psycheee</div>
           </div>
         </div>
