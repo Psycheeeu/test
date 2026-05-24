@@ -267,7 +267,7 @@ export const channels: Channel[] = [
     epgId: 'cs18',
     epgSource: 'none',
     stream: {
-      url: 'http://akariko.netgenx.site/stream/jp/mtv/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/mtv/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('MTV', 'Music'),
@@ -280,7 +280,7 @@ export const channels: Channel[] = [
     epgId: 'bs26',
     epgSource: 'none',
     stream: {
-      url: 'http://akariko.netgenx.site/stream/jp/space_shower_tv/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/space_shower_tv/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('Space Shower TV', 'Music'),
@@ -293,7 +293,7 @@ export const channels: Channel[] = [
     epgId: 'cs06',
     epgSource: 'none',
     stream: {
-      url: 'http://akariko.netgenx.site/stream/jp/music_japan_tv/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/music_japan_tv/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('Music Japan TV', 'Music'),
@@ -306,7 +306,7 @@ export const channels: Channel[] = [
     epgId: 'jp78',
     epgSource: 'none',
     stream: {
-      url: 'http://akariko.netgenx.site/stream/jp/music_on_tv/stream-output.m3u8?mode=hlss',
+      url: 'https://akariko.netgenx.site/stream/jp/music_on_tv/stream-output.m3u8?mode=hlss',
       type: 'hls',
     },
     programs: noScheduleProgram('Music ON TV', 'Music'),
