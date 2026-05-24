@@ -16,15 +16,11 @@ export default function App() {
   const [showChannelInfo, setShowChannelInfo] = useState(true);
   const [introLoading, setIntroLoading] = useState(true);
   const [showAndroidControls, setShowAndroidControls] = useState(false);
-  const [epgReady, setEpgReady] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [favorites, setFavorites] = useState<number[]>([1]);
   const [streamStatus, setStreamStatus] = useState('idle');
   const [streamInfo, setStreamInfo] = useState<StreamInfo>(defaultStreamInfo);
-  const [videoSettings, setVideoSettings] = useState<VideoSettings>({
-    ...defaultSettings,
-    audioEnabled: true,
-  });
+  const [videoSettings, setVideoSettings] = useState<VideoSettings>(defaultSettings);
   const [lineup, setLineup] = useState<Channel[]>(channels);
   const [adultUnlocked, setAdultUnlocked] = useState(() => sessionStorage.getItem('adultUnlocked') === 'true');
   const [pendingAdultIndex, setPendingAdultIndex] = useState<number | null>(null);
@@ -40,12 +36,7 @@ export default function App() {
   useEffect(() => {
     let cancelled = false;
     loadEpgForChannels(channels).then((updatedLineup) => {
-      if (!cancelled) {
-        setLineup(updatedLineup);
-        setEpgReady(true);
-      }
-    }).catch(() => {
-      if (!cancelled) setEpgReady(true);
+      if (!cancelled) setLineup(updatedLineup);
     });
     return () => {
       cancelled = true;
@@ -69,14 +60,21 @@ export default function App() {
     };
   }, []);
 
+  const [introReady, setIntroReady] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIntroLoading(false);
-      setShowChannelInfo(true);
-    }, 7000);
+      setIntroReady(true);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const dismissIntro = useCallback(() => {
+    if (!introReady) return;
+    setIntroLoading(false);
+    setShowChannelInfo(true);
+  }, [introReady]);
 
   // Handle channel change
   const changeChannel = useCallback(
@@ -281,15 +279,16 @@ export default function App() {
     <div className="relative w-screen h-screen bg-black overflow-hidden select-none">
       {/* Main TV Screen */}
       <div className="absolute inset-0">
-        <TVScreen
-          ref={videoPlayerRef}
-          channel={currentChannel}
-          isTransitioning={isTransitioning}
-          settings={videoSettings}
-          deferPlayback={introLoading && currentChannelIndex === 0}
-          onStatusChange={setStreamStatus}
-          onStreamInfoChange={setStreamInfo}
-        />
+        {!introLoading && (
+          <TVScreen
+            ref={videoPlayerRef}
+            channel={currentChannel}
+            isTransitioning={isTransitioning}
+            settings={videoSettings}
+            onStatusChange={setStreamStatus}
+            onStreamInfoChange={setStreamInfo}
+          />
+        )}
       </div>
 
       {/* Channel info overlay */}
@@ -432,7 +431,11 @@ export default function App() {
       />
 
       {introLoading && (
-        <div className="absolute inset-0 z-[80] flex items-center justify-center bg-black">
+        <div
+          className="absolute inset-0 z-[80] flex cursor-pointer items-center justify-center bg-black"
+          onClick={dismissIntro}
+          onTouchEnd={dismissIntro}
+        >
           <div className="flex min-h-screen w-full flex-col items-center justify-center">
             <div className="flex h-[90px] w-[90px] items-center justify-center rounded-[26px] border border-white/10 text-white">
               <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -442,13 +445,22 @@ export default function App() {
             <div className="mt-8 text-[30px] font-black tracking-[-0.08em] text-white">PsycheFlix</div>
             <div className="mt-1 text-[11px] font-black uppercase tracking-[0.45em] text-white/35">Live TV</div>
             <div className="mt-8 h-[2px] w-[140px] overflow-hidden bg-white/15">
-              <div className="h-full w-full origin-left animate-[loadingBar_7s_ease-in-out_forwards] bg-white" />
+              <div className="h-full w-full origin-left animate-[loadingBar_5s_ease-in-out_forwards] bg-white" />
             </div>
-            <div className="mt-4 text-[10px] font-black uppercase tracking-[0.35em] text-white/25">Loading</div>
-            <div className="mt-3 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.22em] text-white/15">
-              <span>{epgReady ? 'EPG ready' : 'Loading EPG'}</span>
-              <span>/</span>
-              <span>{streamStatus === 'playing' ? 'Stream ready' : 'Buffering stream'}</span>
+            <div className="mt-6 flex h-10 items-center justify-center">
+              {!introReady ? (
+                <div className="text-[10px] font-black uppercase tracking-[0.35em] text-white/25">Loading</div>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    dismissIntro();
+                  }}
+                  className="rounded-full bg-white px-8 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-black transition-all hover:scale-105 active:scale-95"
+                >
+                  Start Watching
+                </button>
+              )}
             </div>
             <div className="absolute bottom-[70px] text-[11px] font-black text-white/10">Owned by Psycheee</div>
           </div>
