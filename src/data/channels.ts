@@ -268,7 +268,7 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Rock X Stream', 'Entertainment'),
   },
   {
-    number: 12,
+    number: 31,
     name: 'Animax',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QxTehhs.png',
@@ -285,7 +285,7 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Animax', 'Foreign'),
   },
   {
-    number: 13,
+    number: 32,
     name: 'Aniplus',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QgRMmBS.png',
