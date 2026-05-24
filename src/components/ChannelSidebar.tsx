@@ -141,6 +141,7 @@ export default function ChannelSidebar({
           <div className="mb-6 sm:mb-[30px] flex items-start justify-between">
             <div className="flex items-center gap-5">
               <div>
+                <div className="text-[11px] font-black uppercase tracking-[0.28em] text-sky-300">PsycheFlix</div>
                 <h2 className="text-xl sm:text-[24px] font-black tracking-[-0.05em] text-white">PsycheFlix</h2>
                 <div className="mt-[2px] text-[10px] sm:text-[12px] font-medium uppercase tracking-[0.04em] text-white/35">Owned by Psycheee</div>
               </div>
