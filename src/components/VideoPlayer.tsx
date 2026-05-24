@@ -28,14 +28,13 @@ interface VideoPlayerProps {
   channel: Channel;
   isTransitioning: boolean;
   settings: VideoSettings;
-  deferPlayback?: boolean;
   onError?: (msg: string) => void;
   onStatusChange?: (status: string) => void;
   onStreamInfoChange?: (info: StreamInfo) => void;
 }
 
 const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
-  function VideoPlayer({ channel, isTransitioning, settings, deferPlayback, onError, onStatusChange, onStreamInfoChange }, ref) {
+  function VideoPlayer({ channel, isTransitioning, settings, onError, onStatusChange, onStreamInfoChange }, ref) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const hlsRef = useRef<Hls | null>(null);
     const shakaRef = useRef<any>(null);
@@ -144,52 +143,26 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
       video.muted = !settingsRef.current.audioEnabled;
       video.volume = 1;
 
-      return video.play().then(() => {
+      const tryPlay = () => video.play().then(() => {
         keepAudioOn(video);
         updateStatus('playing');
-      }).catch(() => {
-        if (channel.number === 1) {
-          setTimeout(() => {
-            if (video.paused && !video.ended && !video.error) {
-              video.play().then(() => {
-                keepAudioOn(video);
-                updateStatus('playing');
-              }).catch(() => {});
-            }
-          }, 400);
-        }
-
-        if (!settingsRef.current.audioEnabled) {
-          video.muted = true;
-          return video.play().then(() => {
-            updateStatus('playing');
-          }).catch(() => {
-            if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-              updateStatus('playing');
-            } else if (!shouldShowBlockingError(video)) {
-              updateStatus('buffering');
-            } else {
-              updateStatus('error');
-              setErrorMsg('Playback could not start');
-            }
-          });
-        }
-
-        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-          if (!video.paused) {
-            keepAudioOn(video);
-            updateStatus('playing');
-          } else {
-            updateStatus('buffering');
-          }
-        } else if (!shouldShowBlockingError(video)) {
-          updateStatus('buffering');
-        } else {
-          updateStatus('error');
-          setErrorMsg('Playback could not start');
-        }
       });
-    }, [channel.number, keepAudioOn, shouldShowBlockingError, updateStatus]);
+
+      return tryPlay().catch(() => {
+        // Muted fallback for autoplay-blocked browsers
+        video.muted = true;
+        return tryPlay().catch(() => {
+          if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+            updateStatus('playing');
+          } else if (!shouldShowBlockingError(video)) {
+            updateStatus('buffering');
+          } else {
+            updateStatus('error');
+            setErrorMsg('Playback could not start');
+          }
+        });
+      });
+    }, [keepAudioOn, shouldShowBlockingError, updateStatus]);
 
     useEffect(() => {
       settingsRef.current = settings;
@@ -328,7 +301,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
 
           updateHlsStreamInfo();
 
-          if (!deferPlayback) startVideoPlayback(video);
+          startVideoPlayback(video);
         });
 
         hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, updateHlsStreamInfo);
@@ -361,13 +334,13 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = stream.url;
         video.addEventListener('loadedmetadata', () => {
-          if (!deferPlayback) startVideoPlayback(video);
+          startVideoPlayback(video);
         });
       } else {
         updateStatus('error');
         setErrorMsg('HLS not supported in this browser');
       }
-    }, [deferPlayback, onError, onStreamInfoChange, shouldShowBlockingError, startVideoPlayback, updateStatus]);
+    }, [onError, onStreamInfoChange, shouldShowBlockingError, startVideoPlayback, updateStatus]);
 
     const playDASH = useCallback(async (stream: StreamSource, video: HTMLVideoElement) => {
       shouldAutoResumeRef.current = true;
@@ -631,7 +604,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
           manifestUrl: stream.url,
         });
 
-        if (!deferPlayback) startVideoPlayback(video);
+        startVideoPlayback(video);
 
       } catch (err: any) {
         console.error('Shaka init error:', err);
@@ -642,7 +615,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
           updateStatus('buffering');
         }
       }
-    }, [deferPlayback, onError, onStreamInfoChange, shouldShowBlockingError, startVideoPlayback, updateStatus]);
+    }, [onError, onStreamInfoChange, shouldShowBlockingError, startVideoPlayback, updateStatus]);
 
     // Load stream when channel changes
     useEffect(() => {
@@ -683,19 +656,11 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
 
     useEffect(() => {
       const video = videoRef.current;
-      if (!video || deferPlayback) return;
+      if (!video) return;
       if (video.paused && (hlsRef.current || shakaRef.current || video.src)) {
-        if (channel.number === 1 && channel.stream?.type === 'hls') {
-          try {
-            video.currentTime = 0;
-            hlsRef.current?.startLoad(0);
-          } catch {
-            // The first HLS stream may already be positioned at 0.
-          }
-        }
         startVideoPlayback(video);
       }
-    }, [channel.number, channel.stream?.type, deferPlayback, startVideoPlayback]);
+    }, [startVideoPlayback]);
 
     // Apply playback-option changes without destroying/reloading the active stream.
     useEffect(() => {

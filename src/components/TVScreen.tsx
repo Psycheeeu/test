@@ -7,13 +7,12 @@ interface TVScreenProps {
   channel: Channel;
   isTransitioning: boolean;
   settings: VideoSettings;
-  deferPlayback?: boolean;
   onStatusChange?: (status: string) => void;
   onStreamInfoChange?: (info: StreamInfo) => void;
 }
 
 const TVScreen = forwardRef<VideoPlayerHandle, TVScreenProps>(
-  function TVScreen({ channel, isTransitioning, settings, deferPlayback, onStatusChange, onStreamInfoChange }, ref) {
+  function TVScreen({ channel, isTransitioning, settings, onStatusChange, onStreamInfoChange }, ref) {
     return (
       <div className="relative w-full h-full overflow-hidden bg-black">
         {/* Video player (when stream is available) */}
@@ -23,7 +22,6 @@ const TVScreen = forwardRef<VideoPlayerHandle, TVScreenProps>(
             channel={channel}
             isTransitioning={isTransitioning}
             settings={settings}
-            deferPlayback={deferPlayback}
             onStatusChange={onStatusChange}
             onStreamInfoChange={onStreamInfoChange}
           />
