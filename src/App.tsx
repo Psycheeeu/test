@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { channels, Channel } from './data/channels';
 import { loadEpgForChannels } from './data/epg';
 import { StreamInfo, VideoSettings, defaultSettings, defaultStreamInfo } from './data/videoSettings';
@@ -15,6 +15,7 @@ export default function App() {
   const [showVideoOptions, setShowVideoOptions] = useState(false);
   const [showChannelInfo, setShowChannelInfo] = useState(true);
   const [introLoading, setIntroLoading] = useState(true);
+  const [showNsfw, setShowNsfw] = useState(false);
   const [showAndroidControls, setShowAndroidControls] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [favorites, setFavorites] = useState<number[]>([1]);
@@ -22,6 +23,7 @@ export default function App() {
   const [streamInfo, setStreamInfo] = useState<StreamInfo>(defaultStreamInfo);
   const [videoSettings, setVideoSettings] = useState<VideoSettings>(defaultSettings);
   const [lineup, setLineup] = useState<Channel[]>(channels);
+  const visibleLineup = useMemo(() => lineup.filter(c => showNsfw || !c.isAdult), [lineup, showNsfw]);
   const [adultUnlocked, setAdultUnlocked] = useState(() => sessionStorage.getItem('adultUnlocked') === 'true');
   const [pendingAdultIndex, setPendingAdultIndex] = useState<number | null>(null);
   const [pinInput, setPinInput] = useState('');
@@ -31,7 +33,7 @@ export default function App() {
   const infoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoPlayerRef = useRef<VideoPlayerHandle>(null);
 
-  const currentChannel = lineup[currentChannelIndex] ?? lineup[0];
+  const currentChannel = visibleLineup[currentChannelIndex] ?? visibleLineup[0];
 
   useEffect(() => {
     let cancelled = false;
@@ -79,10 +81,10 @@ export default function App() {
   // Handle channel change
   const changeChannel = useCallback(
     (index: number) => {
-      if (index < 0 || index >= lineup.length) return;
+      if (index < 0 || index >= visibleLineup.length) return;
       setIsTransitioning(true);
       setShowChannelInfo(true);
-      setStreamInfo({ ...defaultStreamInfo, manifestUrl: lineup[index].stream?.url ?? '' });
+      setStreamInfo({ ...defaultStreamInfo, manifestUrl: visibleLineup[index].stream?.url ?? '' });
       setVideoSettings((prev) => ({
         ...prev,
         quality: 'auto',
@@ -102,12 +104,12 @@ export default function App() {
         setShowChannelInfo(false);
       }, 4000);
     },
-    [lineup]
+    [visibleLineup]
   );
 
   const requestChannelChange = useCallback((index: number) => {
-    if (index < 0 || index >= lineup.length) return;
-    const targetChannel = lineup[index];
+    if (index < 0 || index >= visibleLineup.length) return;
+    const targetChannel = visibleLineup[index];
 
     if (targetChannel.isAdult && !adultUnlocked) {
       setPendingAdultIndex(index);
@@ -119,7 +121,7 @@ export default function App() {
     }
 
     changeChannel(index);
-  }, [adultUnlocked, changeChannel, lineup]);
+  }, [adultUnlocked, changeChannel, visibleLineup]);
 
   const submitAdultPin = useCallback(() => {
     if (pinInput === '670420' && pendingAdultIndex !== null) {
@@ -140,14 +142,14 @@ export default function App() {
 
   // Channel up/down
   const channelUp = useCallback(() => {
-    requestChannelChange((currentChannelIndex + 1) % lineup.length);
-  }, [currentChannelIndex, requestChannelChange, lineup.length]);
+    requestChannelChange((currentChannelIndex + 1) % visibleLineup.length);
+  }, [currentChannelIndex, requestChannelChange, visibleLineup.length]);
 
   const channelDown = useCallback(() => {
     requestChannelChange(
-      (currentChannelIndex - 1 + lineup.length) % lineup.length
+      (currentChannelIndex - 1 + visibleLineup.length) % visibleLineup.length
     );
-  }, [currentChannelIndex, requestChannelChange, lineup.length]);
+  }, [currentChannelIndex, requestChannelChange, visibleLineup.length]);
 
   // Toggle panels — left/right exclusive
   const toggleChannelSidebar = useCallback(() => {
@@ -296,13 +298,13 @@ export default function App() {
 
       {/* Channel Sidebar (left arrow) */}
       <ChannelSidebar
-        channels={lineup}
+        channels={visibleLineup}
         visible={!introLoading && showChannelSidebar}
         mode={channelSidebarMode}
         onModeChange={setChannelSidebarMode}
         currentChannel={currentChannel}
         onSelectChannel={(ch) => {
-          const idx = lineup.findIndex((c) => c.number === ch.number);
+          const idx = visibleLineup.findIndex((c) => c.number === ch.number);
           requestChannelChange(idx);
           setShowChannelSidebar(false);
         }}
@@ -442,15 +444,15 @@ export default function App() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 6l-2-3m10 3l2-3M5.5 8.5h13A1.5 1.5 0 0120 10v7a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 014 17v-7a1.5 1.5 0 011.5-1.5z" />
               </svg>
             </div>
-            <div className="mt-8 text-[30px] font-black tracking-[-0.08em] text-white">PsycheFlix</div>
+            <div className="mt-8 text-[32px] font-black tracking-[-0.08em] text-white">PsycheFlix</div>
             <div className="mt-1 text-[11px] font-black uppercase tracking-[0.45em] text-white/35">Live TV</div>
-            <div className="mt-8 h-[2px] w-[140px] overflow-hidden bg-white/15">
+            <div className="mt-10 h-[3px] w-[200px] overflow-hidden rounded-full bg-white/15">
               <div className="h-full w-full origin-left animate-[loadingBar_5s_ease-in-out_forwards] bg-white" />
             </div>
-            <div className="mt-6 flex h-10 items-center justify-center">
-              {!introReady ? (
-                <div className="text-[10px] font-black uppercase tracking-[0.35em] text-white/25">Loading</div>
-              ) : (
+            <div className="mt-5 text-[10px] font-black uppercase tracking-[0.35em] text-white/25">Loading</div>
+
+            <div className="mt-10 flex h-10 items-center justify-center">
+              {introReady && (
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -462,6 +464,19 @@ export default function App() {
                 </button>
               )}
             </div>
+            {introReady && (
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <label className="flex cursor-pointer items-center gap-2.5 text-[11px] font-black uppercase tracking-[0.15em] text-white/40 hover:text-white/60">
+                  <input
+                    type="checkbox"
+                    checked={showNsfw}
+                    onChange={(e) => setShowNsfw(e.target.checked)}
+                    className="h-4 w-4 rounded-sm accent-white"
+                  />
+                  Show NSFW Channels
+                </label>
+              </div>
+            )}
             <div className="absolute bottom-[70px] text-[11px] font-black text-white/10">Owned by Psycheee</div>
           </div>
         </div>

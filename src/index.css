@@ -100,11 +100,9 @@ body {
 @keyframes guideSlide {
   from {
     opacity: 0;
-    transform: translateX(-30px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -116,11 +114,9 @@ body {
 @keyframes optionsSlide {
   from {
     opacity: 0;
-    transform: translateX(30px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
