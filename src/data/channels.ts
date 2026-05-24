@@ -57,10 +57,10 @@ export const noScheduleProgram = (channelName: string, genre: string): Program[]
 }];
 
 const musicProgram = (): Program[] => [{
-  title: NMIXX - Heavy Serenade',
+  title: 'NMIXX - Heavy Serenade',
   startTime: '00:00',
   endTime: '23:59',
-  description: 'NMIXX’s Heavy Serenade is one of their most cohesive “MIXX POP” projects so far — emotionally focused, sonically layered, and structurally designed around the idea of love becoming overwhelming in both a beautiful and frightening way.',
+  description: "NMIXX's Heavy Serenade is one of their most cohesive \"MIXX POP\" projects so far — emotionally focused, sonically layered, and structurally designed around the idea of love becoming overwhelming in both a beautiful and frightening way.",
   genre: 'Music',
   source: 'none',
 }];
@@ -70,7 +70,7 @@ export const channels: Channel[] = [
     number: 1,
     name: 'WELCOME!',
     category: 'Welcome',
-    logo: 'https://i.imgur.com/S9QuCHI.png',
+    logo: 'https://i.imgur.com/x4MvRc9.jpeg',
     epgId: 'none',
     epgSource: 'none',
     stream: {
@@ -87,9 +87,8 @@ export const channels: Channel[] = [
     epgId: 'Kapamilya.Channel.ph',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/1286/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3NzcxMTY2NiwiZXhwIjoxNzc4NTc1NjY2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3Nzg1NzU2NjYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.DT5Md1iALIgiLWTJWv9HpBok1gaYwXfdsGOS1bmfmLM',
-      type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '31363331363737343637333533323837': '71347339457958556439543650426e74' } },
+      url: 'https://converse.nathcreqtives.com/channels/kapamilya-channel-hd/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      type: 'hls',
     },
     programs: noScheduleProgram('Kapamilya Channel', 'Local'),
   },
@@ -101,9 +100,8 @@ export const channels: Channel[] = [
     epgId: 'GMA.ph',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/1093/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3NzcxMTY2NiwiZXhwIjoxNzc4NTc1NjY2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3Nzg1NzU2NjYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.DT5Md1iALIgiLWTJWv9HpBok1gaYwXfdsGOS1bmfmLM',
-      type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '31363231383438333031323033393138': '38694e34324d543478316b7455753437' } },
+      url: 'https://converse.nathcreqtives.com/channels/gma-7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      type: 'hls',
     },
     programs: noScheduleProgram('GMA', 'Local'),
   },
@@ -115,9 +113,8 @@ export const channels: Channel[] = [
     epgId: 'GTV.ph',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/1143/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3NzcxMTY2NiwiZXhwIjoxNzc4NTc1NjY2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3Nzg1NzU2NjYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.DT5Md1iALIgiLWTJWv9HpBok1gaYwXfdsGOS1bmfmLM',
-      type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '31363232353335323435353337353331': '35416a68643065697575493337566135' } },
+      url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      type: 'hls',
     },
     programs: noScheduleProgram('GTV', 'Local'),
   },
@@ -131,7 +128,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/tv5_hd/default1/index.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '2615129ef2c846a9bbd43a641c7303ef': '07c7f996b1734ea288641a68e1cfdc4d' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '2615129ef2c846a9bbd43a641c7303ef': '07c7f996b1734ea288641a68e1cfdc4d' },
+      },
     },
     programs: noScheduleProgram('TV5', 'Local'),
   },
@@ -145,7 +145,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_onesports_hd/default/index.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '53c3bf2eba574f639aa21f2d4409ff11': '3de28411cf08a64ea935b9578f6d0edd' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '53c3bf2eba574f639aa21f2d4409ff11': '3de28411cf08a64ea935b9578f6d0edd' },
+      },
     },
     programs: noScheduleProgram('One Sports', 'Local'),
   },
@@ -159,7 +162,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_a2z/default/index.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '3f6d8a2c1b7e4c9f8d52a7e1b0c6f93d': '4019f9269b9054a2b9e257b114ebbaf2' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '3f6d8a2c1b7e4c9f8d52a7e1b0c6f93d': '4019f9269b9054a2b9e257b114ebbaf2' },
+      },
     },
     programs: noScheduleProgram('A2Z', 'Local'),
   },
@@ -171,9 +177,8 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/1179/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3NzcxMTY2NiwiZXhwIjoxNzc4NTc1NjY2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3Nzg1NzU2NjYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.DT5Md1iALIgiLWTJWv9HpBok1gaYwXfdsGOS1bmfmLM',
-      type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '31363233323238353336303333363036': '367662564c69425947353948374f4553' } },
+      url: 'https://converse.nathcreqtives.com/channels/all-tv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      type: 'hls',
     },
     programs: noScheduleProgram('ALLTV', 'Local'),
   },
@@ -187,7 +192,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { 'c2b7a1e95d4f4c3a8e617f9d0a2b6c18': '27fca1ab042998b0c2f058b0764d7ed4' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'c2b7a1e95d4f4c3a8e617f9d0a2b6c18': '27fca1ab042998b0c2f058b0764d7ed4' },
+      },
     },
     programs: noScheduleProgram('HBO', 'Entertainment'),
   },
@@ -201,7 +209,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_cinemax/default/index.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { 'b207c44332844523a3a3b0469e5652d7': 'fe71aea346db08f8c6fbf0592209f955' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'b207c44332844523a3a3b0469e5652d7': 'fe71aea346db08f8c6fbf0592209f955' },
+      },
     },
     programs: noScheduleProgram('Cinemax', 'Entertainment'),
   },
@@ -215,7 +226,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_animax_sd_new/default/index.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '92032b0e41a543fb9830751273b8debd': '03f8b65e2af785b10d6634735dbe6c11' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '92032b0e41a543fb9830751273b8debd': '03f8b65e2af785b10d6634735dbe6c11' },
+      },
     },
     programs: noScheduleProgram('Animax', 'Foreign'),
   },
@@ -240,9 +254,8 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/1152/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3NzcxMTY2NiwiZXhwIjoxNzc4NTc1NjY2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3Nzg1NzU2NjYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.DT5Md1iALIgiLWTJWv9HpBok1gaYwXfdsGOS1bmfmLM',
-      type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '31363233303437353134383939313936': '686e36454a54544d3930343749713333' } },
+      url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      type: 'hls',
     },
     programs: noScheduleProgram('Hallypop', 'Local'),
   },
@@ -253,7 +266,10 @@ export const channels: Channel[] = [
     logo: 'https://www.jcom.co.jp/service/tv/channel/list/images_v10/logo/logo_mtvHD.png',
     epgId: 'mtv',
     epgSource: 'none',
-    stream: { url: 'https://nl.utako.moe/mtv/index.m3u8', type: 'hls' },
+    stream: {
+      url: 'https://converse.nathcreqtives.com/api/playlist/BQuyqfCil8KSsxptelI7UUX-/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      type: 'hls',
+    },
     programs: noScheduleProgram('MTV', 'Music'),
   },
   {
@@ -263,28 +279,37 @@ export const channels: Channel[] = [
     logo: 'https://i.imgur.com/2yAiqhE.png',
     epgId: 'space_shower_tv',
     epgSource: 'none',
-    stream: { url: 'https://nl.utako.moe/spaceshower/index.m3u8', type: 'hls' },
+    stream: {
+      url: 'https://speedy.nathcreqtives.com/api/streams/jp-bs26/main.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3ODY0MjY0NiwiZXhwIjoxNzgxMjM0NjQ2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODEyMzQ2NDYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.yorqukBa5j_t0bNQXvTsK7aW_6cr-NpkFoFpl_IuVhU',
+      type: 'hls',
+    },
     programs: noScheduleProgram('Space Shower TV', 'Music'),
   },
   {
     number: 53,
-    name: 'Mnet',
+    name: 'Music Japan TV',
     category: 'Music',
-    logo: 'https://www.starcat.co.jp/ch/upload/channel/36/mnetjp_logo.jpg',
-    epgId: 'mnet',
+    logo: 'https://xuanzi-storage.netgenx.site/icons/icon_77.png',
+    epgId: 'space_shower_tv',
     epgSource: 'none',
-    stream: { url: 'https://nl.utako.moe/mnet/index.m3u8', type: 'hls' },
-    programs: noScheduleProgram('Mnet', 'Music'),
+    stream: {
+      url: 'https://speedy.nathcreqtives.com/api/streams/jp-cs06/main.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3ODY0MjY0NiwiZXhwIjoxNzgxMjM0NjQ2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODEyMzQ2NDYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.yorqukBa5j_t0bNQXvTsK7aW_6cr-NpkFoFpl_IuVhU',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Music Japan TV', 'Music'),
   },
   {
     number: 54,
-    name: 'Music ON TV',
+    name: 'StarM',
     category: 'Music',
-    logo: 'https://xuanzi-storage.netgenx.site/icons/icon_75.png',
-    epgId: 'music_on_tv',
+    logo: 'https://i.imgur.com/ms2Hnny.jpeg',
+    epgId: 'none',
     epgSource: 'none',
-    stream: { url: 'https://nl.utako.moe/musicon/index.m3u8', type: 'hls' },
-    programs: noScheduleProgram('Music ON TV', 'Music'),
+    stream: {
+      url: 'https://lbgo.bozztv.com/ssh101/ssh101/starmchannel/playlist.m3u8',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('StarM', 'Music'),
   },
   {
     number: 100,
@@ -296,7 +321,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://streaml01cf.nxtv.jp/p-menecoch01-amni5j72tc/index1/manifest.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { 'a4f627d962f2487f9d34c723f662ad5e': '76b6fc1d5c60dcbadea1fe42338c95b4' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'a4f627d962f2487f9d34c723f662ad5e': '76b6fc1d5c60dcbadea1fe42338c95b4' },
+      },
     },
     isAdult: true,
     programs: noScheduleProgram("Men's Neco", 'NSFW'),
@@ -333,7 +361,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://zap-live1-ott.izzigo.tv/11/out/u/dash/VENUS-HD/default.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '3d5090bbd1ae282e0485a96897c55072': '7b7a010ccf0805aa9a980c5492ddb329' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '3d5090bbd1ae282e0485a96897c55072': '7b7a010ccf0805aa9a980c5492ddb329' },
+      },
     },
     isAdult: true,
     programs: noScheduleProgram('Venus', 'NSFW'),
@@ -348,7 +379,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://zap-live1-ott.izzigo.tv/12/out/u/dash/SEXTREME-HD/default.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { '70c880ec2be3d06a1c9d3affe38c3067': '1a191b0f75b7e40ccbb8229bbcdeaaec' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '70c880ec2be3d06a1c9d3affe38c3067': '1a191b0f75b7e40ccbb8229bbcdeaaec' },
+      },
     },
     isAdult: true,
     programs: noScheduleProgram('Sextreme', 'NSFW'),
@@ -363,7 +397,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://zap-live1-ott.izzigo.tv/12/out/u/dash/PENTHOUSE-HD/default.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { 'a640ab23ef9c97c8386debb824d9323e': 'e0fded3030fe2c292a5f8442977babae' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'a640ab23ef9c97c8386debb824d9323e': 'e0fded3030fe2c292a5f8442977babae' },
+      },
     },
     isAdult: true,
     programs: noScheduleProgram('Penthouse Gold', 'NSFW'),
@@ -378,7 +415,10 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://lilac01.pontiscloud.com/live/eds/Playboy/live_dash_cld/Playboy.mpd',
       type: 'dash',
-      drm: { scheme: 'clearkey', clearkeys: { 'f51160ad68cb411abbae2b7e51e20ad4': '3015d76327dcd38f19037e5af639ebb2' } },
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'f51160ad68cb411abbae2b7e51e20ad4': '3015d76327dcd38f19037e5af639ebb2' },
+      },
     },
     isAdult: true,
     programs: noScheduleProgram('Playboy', 'NSFW'),
