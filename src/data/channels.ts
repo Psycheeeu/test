@@ -87,7 +87,7 @@ export const channels: Channel[] = [
     epgId: 'Kapamilya.Channel.ph',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/kapamilya-channel-hd/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://converse.nathcreqtives.com/channels/kapamilya-channel-hd/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('Kapamilya Channel', 'Local'),
@@ -100,7 +100,7 @@ export const channels: Channel[] = [
     epgId: 'GMA.ph',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/gma-7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://converse.nathcreqtives.com/channels/gma-7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('GMA', 'Local'),
@@ -113,7 +113,7 @@ export const channels: Channel[] = [
     epgId: 'GTV.ph',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('GTV', 'Local'),
@@ -177,7 +177,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/all-tv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://converse.nathcreqtives.com/channels/all-tv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('ALLTV', 'Local'),
@@ -254,7 +254,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://converse.nathcreqtives.com/channels/hallypop/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('Hallypop', 'Local'),
@@ -267,7 +267,7 @@ export const channels: Channel[] = [
     epgId: 'mtv',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/playlist/BQuyqfCil8KSsxptelI7UUX-/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://converse.nathcreqtives.com/api/playlist/zxOJJtLJ-wT0KSZzbN8zXzFS/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('MTV', 'Music'),
@@ -280,7 +280,7 @@ export const channels: Channel[] = [
     epgId: 'space_shower_tv',
     epgSource: 'none',
     stream: {
-      url: 'https://speedy.nathcreqtives.com/api/streams/jp-bs26/main.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3ODY0MjY0NiwiZXhwIjoxNzgxMjM0NjQ2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODEyMzQ2NDYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.yorqukBa5j_t0bNQXvTsK7aW_6cr-NpkFoFpl_IuVhU',
+      url: 'https://converse.nathcreqtives.com/api/playlist/9o3Rqzj66lctosCJDInqN7Pp/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('Space Shower TV', 'Music'),
@@ -293,7 +293,7 @@ export const channels: Channel[] = [
     epgId: 'space_shower_tv',
     epgSource: 'none',
     stream: {
-      url: 'https://speedy.nathcreqtives.com/api/streams/jp-cs06/main.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3ODY0MjY0NiwiZXhwIjoxNzgxMjM0NjQ2LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODEyMzQ2NDYsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIl19.yorqukBa5j_t0bNQXvTsK7aW_6cr-NpkFoFpl_IuVhU',
+      url: 'https://converse.nathcreqtives.com/api/playlist/LDbILYKZtn_RP_dVlncDQvJc/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
     programs: noScheduleProgram('Music Japan TV', 'Music'),
