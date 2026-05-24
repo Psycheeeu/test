@@ -312,6 +312,19 @@ export const channels: Channel[] = [
   },
   {
     number: 51,
+    name: 'MNET',
+    category: 'Music',
+    logo: 'https://www.jcom.co.jp/service/tv/channel/option_ch/images_v10/logo/logo_mnetHD.png',
+    epgId: 'Mnet_jp',
+    epgSource: 'none',
+    stream: {
+      url: 'http://akariko.netgenx.site/stream/jp/mnet/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('MTV', 'Music'),
+  },
+  {
+    number: 52,
     name: 'MTV',
     category: 'Music',
     logo: 'https://www.jcom.co.jp/service/tv/channel/list/images_v10/logo/logo_mtvHD.png',
@@ -324,7 +337,7 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('MTV', 'Music'),
   },
   {
-    number: 52,
+    number: 53,
     name: 'Space Shower TV',
     category: 'Music',
     logo: 'https://i.imgur.com/2yAiqhE.png',
@@ -337,7 +350,7 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Space Shower TV', 'Music'),
   },
   {
-    number: 53,
+    number: 54,
     name: 'Music Japan TV',
     category: 'Music',
     logo: 'https://xuanzi-storage.netgenx.site/icons/icon_77.png',
@@ -350,7 +363,7 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Music Japan TV', 'Music'),
   },
   {
-    number: 54,
+    number: 55,
     name: 'Music ON TV',
     category: 'Music',
     logo: 'https://xuanzi-storage.netgenx.site/icons/icon_75.png',
@@ -363,7 +376,7 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Music ON TV', 'Music'),
   },
   {
-    number: 55,
+    number: 56,
     name: 'StarM',
     category: 'Music',
     logo: 'https://i.imgur.com/ms2Hnny.jpeg',
