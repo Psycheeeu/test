@@ -2,10 +2,11 @@ import { ungzip } from 'pako';
 import { Channel, Program, getDummyEpgId } from './channels';
 
 export const EPG_SOURCE_URLS = [
-  'https://www.open-epg.com/generate/9c9FySzHrW.xml',
+  'https://www.open-epg.com/files/philippines2.xml',
   'https://akariko.netgenx.site/epg/kai-epg.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',
+  'https://gsat.atone77721.workers.dev/gsat.xml',
 ];
 
 function parseXmltvDate(value: string) {

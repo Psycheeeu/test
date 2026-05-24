@@ -84,7 +84,7 @@ export const channels: Channel[] = [
     name: 'Kapamilya Channel',
     category: 'Local',
     logo: 'https://i.imgur.com/d3LXERq.png',
-    epgId: 'Kapamilya.Channel.ph',
+    epgId: 'gsat.KAPAMILYA_CHANNEL',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/kapamilya-channel-hd/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -97,7 +97,7 @@ export const channels: Channel[] = [
     name: 'GMA',
     category: 'Local',
     logo: 'https://i.imgur.com/D3qGmme.png',
-    epgId: 'GMA.ph',
+    epgId: 'gsat.GMA_7',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/gma-7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -110,7 +110,7 @@ export const channels: Channel[] = [
     name: 'GTV',
     category: 'Local',
     logo: 'https://i.imgur.com/YwKq8Ta.png',
-    epgId: 'GTV.ph',
+    epgId: 'gsat.GTV',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -157,7 +157,7 @@ export const channels: Channel[] = [
     name: 'A2Z',
     category: 'Local',
     logo: 'https://i.imgur.com/DVSTY3w.png',
-    epgId: 'A2z.ph',
+    epgId: 'A2Z.ph',
     epgSource: 'none',
     stream: {
       url: 'https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_a2z/default/index.mpd',
@@ -187,7 +187,7 @@ export const channels: Channel[] = [
     name: 'HBO',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/pa2SF5Z.png',
-    epgId: 'HBO.HD.sg',
+    epgId: 'Cg Hbohd.ph',
     epgSource: 'none',
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd',
@@ -204,7 +204,7 @@ export const channels: Channel[] = [
     name: 'Cinemax',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/X6H75p2.png',
-    epgId: 'CINEMAX.(HD).sg',
+    epgId: 'Cg Cinemax.ph',
     epgSource: 'none',
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_cinemax/default/index.mpd',
