@@ -188,7 +188,7 @@ export const channels: Channel[] = [
     category: 'Entertainment',
     logo: 'https://i.imgur.com/pa2SF5Z.png',
     epgId: 'HBO.sg',
-    epgSource: 'none',
+    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd',
       type: 'dash',
@@ -205,7 +205,7 @@ export const channels: Channel[] = [
     category: 'Entertainment',
     logo: 'https://i.imgur.com/X6H75p2.png',
     epgId: 'CINEMAX.sg',
-    epgSource: 'none',
+    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_cinemax/default/index.mpd',
       type: 'dash',
@@ -222,7 +222,7 @@ export const channels: Channel[] = [
     category: 'Entertainment',
     logo: 'https://i.imgur.com/6MlNllK.png',
     epgId: 'ROCKEntertainment.sg',
-    epgSource: 'none',
+    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/unifi-rock-entertainment/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'dash',
@@ -239,7 +239,7 @@ export const channels: Channel[] = [
     category: 'Entertainment',
     logo: 'https://i.imgur.com/xh8vUt9.png',
     epgId: 'ROCKAction.sg',
-    epgSource: 'none',
+    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/unifi-rock-action/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'dash',
@@ -273,7 +273,7 @@ export const channels: Channel[] = [
     category: 'Foreign',
     logo: 'https://i.imgur.com/QxTehhs.png',
     epgId: 'Animax.sg',
-    epgSource: 'none',
+    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/2-animax-hd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'dash',
@@ -290,7 +290,7 @@ export const channels: Channel[] = [
     category: 'Foreign',
     logo: 'https://i.imgur.com/QgRMmBS.png',
     epgId: 'ANIPLUS.sg',
-    epgSource: 'none',
+    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://amg18481-amg18481c1-amgplt0352.playout.now3.amagi.tv/playlist/amg18481-amg18481c1-amgplt0352/playlist.m3u8',
       type: 'hls',
@@ -318,7 +318,7 @@ export const channels: Channel[] = [
     epgId: 'Mnet_jp',
     epgSource: 'none',
     stream: {
-      url: 'http://akariko.netgenx.site/stream/jp/mnet/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/mnet/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('MTV', 'Music'),
