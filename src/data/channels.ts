@@ -306,7 +306,7 @@ export const channels: Channel[] = [
     epgId: 'jp78',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/music_on_tv/stream-output.m3u8?mode=hlss',
+      url: 'https://akariko.netgenx.site/stream/jp/music_on_tv/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('Music ON TV', 'Music'),
