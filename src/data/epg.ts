@@ -3,6 +3,8 @@ import { Channel, Program, getDummyEpgId } from './channels';
 
 export const EPG_SOURCE_URLS = [
   'https://iptv-epg.org/files/epg-ph.xml',
+  'https://iptv-epg.org/files/epg-sg.xml',
+  'https://iptv-epg.org/files/epg-my.xml',
   'https://akariko.netgenx.site/epg/kai-epg.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',

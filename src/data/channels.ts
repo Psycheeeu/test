@@ -187,7 +187,7 @@ export const channels: Channel[] = [
     name: 'HBO',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/pa2SF5Z.png',
-    epgId: 'Cg Hbohd.ph',
+    epgId: 'HBO.sg',
     epgSource: 'none',
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd',
@@ -204,7 +204,7 @@ export const channels: Channel[] = [
     name: 'Cinemax',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/X6H75p2.png',
-    epgId: 'Cg Cinemax.ph',
+    epgId: 'CINEMAX.sg',
     epgSource: 'none',
     stream: {
       url: 'https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_cinemax/default/index.mpd',
@@ -218,10 +218,61 @@ export const channels: Channel[] = [
   },
   {
     number: 12,
+    name: 'Rock Entertainment',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/6MlNllK.png',
+    epgId: 'ROCKEntertainment.sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/unifi-rock-entertainment/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '6bbe30dc7d7949849ba0c4f2abb2a3ff': '9eb316564523faecf7d5b2fef8081007' },
+      },
+    },
+    programs: noScheduleProgram('Rock Entertainment', 'Entertainment'),
+  },
+  {
+    number: 13,
+    name: 'Rock Action',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/xh8vUt9.png',
+    epgId: 'ROCKAction.sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/unifi-rock-action/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'c64cf911505e42c8aa17869ae51206ba': '2f3f5f1c609c1120216d4d72377d1ac2' },
+      },
+    },
+    programs: noScheduleProgram('Rock Action', 'Entertainment'),
+  },
+  {
+    number: 14,
+    name: 'Rock X Stream',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/w9Q8bil.png',
+    epgId: 'CINEMAX.sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/5c931c0f-83bd-4ad8-ac56-0b1827232889/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '325370d722565ab5ed09a548ba360e10': 'c88fe8f34b9dc8e10a00e876a6ff4136' },
+      },
+    },
+    programs: noScheduleProgram('Rock X Stream', 'Entertainment'),
+  },
+  {
+    number: 12,
     name: 'Animax',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QxTehhs.png',
-    epgId: 'Animax.ph',
+    epgId: 'Animax.sg',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/unifi-tv-malaysia-animax/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -238,7 +289,7 @@ export const channels: Channel[] = [
     name: 'Aniplus',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QgRMmBS.png',
-    epgId: 'ANIPLUS.HD.sg',
+    epgId: 'ANIPLUS.sg',
     epgSource: 'none',
     stream: {
       url: 'https://amg18481-amg18481c1-amgplt0352.playout.now3.amagi.tv/playlist/amg18481-amg18481c1-amgplt0352/playlist.m3u8',
