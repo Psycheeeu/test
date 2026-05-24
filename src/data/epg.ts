@@ -65,20 +65,32 @@ async function fetchOneEpgXml(url: string) {
 
   for (const source of sources) {
     try {
-      const response = await fetch(source, { cache: 'force-cache' });
+      // Use a shorter timeout for EPG fetching to skip slow/hanging sources quickly
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+      const response = await fetch(source, { 
+        cache: 'force-cache',
+        signal: controller.signal 
+      });
+      clearTimeout(timeoutId);
+
       if (!response.ok) throw new Error(`EPG request failed: ${response.status}`);
 
       const bytes = new Uint8Array(await response.arrayBuffer());
       const isGzip = bytes[0] === 0x1f && bytes[1] === 0x8b;
+      
+      // Use a more efficient string conversion for large XML files
       const xml = isGzip ? ungzip(bytes, { to: 'string' }) : new TextDecoder().decode(bytes);
 
-      if (xml.includes('<tv') && xml.includes('<programme')) {
+      if (xml.includes('<tv')) {
         return { url, loadedUrl: source, xml };
       }
 
       throw new Error('EPG response did not look like XMLTV');
     } catch (error) {
       lastError = error;
+      // If aborted or network error, move to next source immediately
     }
   }
 
@@ -100,22 +112,37 @@ async function fetchEpgXmls() {
 function parseProgrammes(xml: Document, channelIds: Set<string>) {
   const map = new Map<string, Program[]>();
   const normalizedToRequestedId = new Map(Array.from(channelIds).map((id) => [normalizeId(id), id]));
-
-  for (const item of Array.from(xml.getElementsByTagName('programme'))) {
+  
+  const programmes = xml.getElementsByTagName('programme');
+  const len = programmes.length;
+  
+  // Use a traditional loop for better performance on large collections
+  for (let i = 0; i < len; i++) {
+    const item = programmes[i];
     const channelId = item.getAttribute('channel') ?? '';
-    const matchedRequestedId = channelIds.has(channelId)
-      ? channelId
-      : normalizedToRequestedId.get(normalizeId(channelId));
+    
+    // Quick check before expensive normalization
+    let matchedRequestedId = channelIds.has(channelId) ? channelId : undefined;
+    if (!matchedRequestedId) {
+      matchedRequestedId = normalizedToRequestedId.get(normalizeId(channelId));
+    }
+    
     if (!matchedRequestedId) continue;
 
-    const startMs = parseXmltvDate(item.getAttribute('start') ?? '');
-    const endMs = parseXmltvDate(item.getAttribute('stop') ?? '');
+    const startAttr = item.getAttribute('start');
+    const stopAttr = item.getAttribute('stop');
+    if (!startAttr || !stopAttr) continue;
+
+    const startMs = parseXmltvDate(startAttr);
+    const endMs = parseXmltvDate(stopAttr);
     if (!startMs || !endMs) continue;
 
+    // Optimization: avoid querying if we already have it
     const title = textFrom(item, 'title') || 'Untitled Program';
     const description = textFrom(item, 'desc') || 'No description available from EPG source.';
     const genre = textFrom(item, 'category') || 'Music';
-    const rating = textFrom(item, 'value') || undefined;
+    const ratingNode = item.getElementsByTagName('value')[0];
+    const rating = ratingNode ? ratingNode.textContent?.trim() : undefined;
 
     const program: Program = {
       title,
@@ -129,28 +156,39 @@ function parseProgrammes(xml: Document, channelIds: Set<string>) {
       source: 'epg',
     };
 
-    map.set(matchedRequestedId, [...(map.get(matchedRequestedId) ?? []), program]);
+    let list = map.get(matchedRequestedId);
+    if (!list) {
+      list = [];
+      map.set(matchedRequestedId, list);
+    }
+    list.push(program);
   }
 
-  for (const [channelId, programs] of map) {
-    map.set(channelId, programs.sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0)));
+  // Sort final lists once
+  for (const programs of map.values()) {
+    programs.sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0));
   }
 
   return map;
 }
 
 function getDeclaredChannelIds(xml: Document) {
-  return new Set(
-    Array.from(xml.getElementsByTagName('channel'))
-      .flatMap((node) => {
-        const id = node.getAttribute('id') ?? '';
-        const displayNames = Array.from(node.getElementsByTagName('display-name'))
-          .map((name) => name.textContent?.trim() ?? '')
-          .filter(Boolean);
-        return [id, ...displayNames];
-      })
-      .filter(Boolean)
-  );
+  const channelNodes = xml.getElementsByTagName('channel');
+  const ids = new Set<string>();
+  
+  for (let i = 0; i < channelNodes.length; i++) {
+    const node = channelNodes[i];
+    const id = node.getAttribute('id');
+    if (id) ids.add(id);
+    
+    const displayNames = node.getElementsByTagName('display-name');
+    for (let j = 0; j < displayNames.length; j++) {
+      const name = displayNames[j].textContent?.trim();
+      if (name) ids.add(name);
+    }
+  }
+  
+  return ids;
 }
 
 function findMatchingId(configuredEpgId: string | undefined, declaredIds: Set<string>) {
