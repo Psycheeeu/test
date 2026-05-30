@@ -16,7 +16,6 @@ export default function App() {
   const [showChannelInfo, setShowChannelInfo] = useState(true);
   const [introLoading, setIntroLoading] = useState(true);
   const [showNsfw, setShowNsfw] = useState(false);
-  const [showAndroidControls, setShowAndroidControls] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [favorites, setFavorites] = useState<number[]>([1]);
   const [streamStatus, setStreamStatus] = useState('idle');
@@ -45,22 +44,54 @@ export default function App() {
     };
   }, []);
 
-  useEffect(() => {
-    const updateAndroidControls = () => {
-      const isAndroid = /Android/i.test(navigator.userAgent);
-      const isLandscape = window.matchMedia('(orientation: landscape)').matches || window.innerWidth > window.innerHeight;
-      setShowAndroidControls(isAndroid && isLandscape);
-    };
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
-    updateAndroidControls();
-    window.addEventListener('resize', updateAndroidControls);
-    window.addEventListener('orientationchange', updateAndroidControls);
-
-    return () => {
-      window.removeEventListener('resize', updateAndroidControls);
-      window.removeEventListener('orientationchange', updateAndroidControls);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (introLoading || pendingAdultIndex !== null) return;
+    touchStart.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
     };
-  }, []);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current || introLoading || pendingAdultIndex !== null) return;
+    
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    const absDx = Math.abs(dx);
+    const absDy = Math.abs(dy);
+    
+    const threshold = 50;
+    
+    if (Math.max(absDx, absDy) > threshold) {
+      if (absDx > absDy) {
+        // Horizontal swipe
+        if (dx < 0) {
+          // Left swipe
+          if (!showVideoOptions) toggleChannelSidebar();
+          else setShowVideoOptions(false);
+        } else {
+          // Right swipe
+          if (!showChannelSidebar) toggleVideoOptions();
+          else setShowChannelSidebar(false);
+        }
+      } else {
+        // Vertical swipe - only if sidebars are closed
+        if (!showChannelSidebar && !showVideoOptions) {
+          if (dy < 0) {
+            // Up swipe
+            channelUp();
+          } else {
+            // Down swipe
+            channelDown();
+          }
+        }
+      }
+    }
+    
+    touchStart.current = null;
+  };
 
   const [introReady, setIntroReady] = useState(false);
 
@@ -278,7 +309,11 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen bg-black overflow-hidden select-none">
+    <div 
+      className="relative w-screen h-screen bg-black overflow-hidden select-none"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Main TV Screen */}
       <div className="absolute inset-0">
         {!introLoading && (
@@ -379,47 +414,7 @@ export default function App() {
         </div>
       )}
 
-      {showAndroidControls && !introLoading && pendingAdultIndex === null && (
-        <div className="pointer-events-none absolute inset-0 z-40">
-          <div className="pointer-events-auto absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/45 p-2 shadow-2xl backdrop-blur-md">
-            <button
-              onClick={toggleChannelSidebar}
-              className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.12em] text-white/70 active:scale-95"
-            >
-              Guide
-            </button>
-            <button
-              onClick={() => setShowChannelInfo(true)}
-              className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.12em] text-white/70 active:scale-95"
-            >
-              Info
-            </button>
-            <button
-              onClick={toggleVideoOptions}
-              className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.12em] text-white/70 active:scale-95"
-            >
-              Settings
-            </button>
-          </div>
 
-          <div className="pointer-events-auto absolute right-5 top-1/2 flex -translate-y-1/2 flex-col gap-3">
-            <button
-              onClick={channelUp}
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/45 text-2xl font-black text-white/75 shadow-xl backdrop-blur-md active:scale-95"
-              aria-label="Channel up"
-            >
-              ↑
-            </button>
-            <button
-              onClick={channelDown}
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/45 text-2xl font-black text-white/75 shadow-xl backdrop-blur-md active:scale-95"
-              aria-label="Channel down"
-            >
-              ↓
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Click area to show channel info */}
       <div
@@ -434,9 +429,7 @@ export default function App() {
 
       {introLoading && (
         <div
-          className="absolute inset-0 z-[80] flex cursor-pointer items-center justify-center bg-black"
-          onClick={dismissIntro}
-          onTouchEnd={dismissIntro}
+          className="absolute inset-0 z-[80] flex items-center justify-center bg-black"
         >
           <div className="flex min-h-screen w-full flex-col items-center justify-center">
             <div className="flex h-[90px] w-[90px] items-center justify-center rounded-[26px] border border-white/10 text-white">
