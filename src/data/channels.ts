@@ -66,7 +66,6 @@ const musicProgram = (): Program[] => [{
 }];
 
 export const channels: Channel[] = [
-  {
     number: 1,
     name: 'WELCOME!',
     category: 'Welcome',
@@ -413,7 +412,7 @@ export const channels: Channel[] = [
     logo: 'https://xuanzi-storage.netgenx.site/icons/icon_94.png',
     epgId: 'pigoo',
     epgSource: 'none',
-    stream: { url: 'https://nl.utako.moe/pigoo/index.m3u8', type: 'hls' },
+    stream: { url: 'http://akariko.netgenx.site/stream/jp/pigoo_nsfw/stream-output.m3u8?mode=hls', type: 'hls' },
     isAdult: true,
     programs: noScheduleProgram('Pigoo', 'NSFW'),
   },
@@ -424,7 +423,7 @@ export const channels: Channel[] = [
     logo: 'https://www.jcom.co.jp/service/tv/channel/list/images_v10/logo/logo_vparaduse.png',
     epgId: 'v_paradise',
     epgSource: 'none',
-    stream: { url: 'https://nl.utako.moe/v_paradise/index.m3u8', type: 'hls' },
+    stream: { url: 'http://akariko.netgenx.site/stream/jp/v_paradise_nsfw/stream-output.m3u8?mode=hls', type: 'hls' },
     isAdult: true,
     programs: noScheduleProgram('V Paradise', 'NSFW'),
   },
