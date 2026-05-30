@@ -162,9 +162,9 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
   return (
     <div className="absolute inset-0 z-30 flex justify-end">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" onClick={onClose} />
-      <aside className="relative z-10 h-full w-[347px] options-slide border-l border-white/5 bg-[#08080a]/98 shadow-[-25px_0_65px_rgba(0,0,0,0.82)]">
+      <aside className="relative z-10 h-full w-full sm:w-[347px] options-slide border-l border-white/5 bg-[#08080a]/98 shadow-[-25px_0_65px_rgba(0,0,0,0.82)]">
         <div className="flex h-full flex-col">
-          <div className="flex items-center gap-4 px-[22px] pb-5 pt-[51px]">
+          <div className="flex items-center gap-4 px-[22px] pb-5 pt-10 sm:pt-[51px]">
             <button onClick={onClose} className="flex h-8 w-8 items-center justify-center rounded-full text-white/90 transition-all hover:bg-white/8 hover:text-white" type="button" aria-label="Close settings">
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
