@@ -331,7 +331,7 @@ export const channels: Channel[] = [
     number: 18,
     name: 'Dlife',
     category: 'Entertainment',
-    logo: 'https://www.jcom.co.jp/service/tv/channel/option_ch/images_v10/logo/icon_54.png',
+    logo: 'https://xuanzi-storage.netgenx.site/icons/icon_54.png',
     epgId: 'jp57',
     epgSource: 'none',
     stream: {
