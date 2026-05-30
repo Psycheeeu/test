@@ -93,7 +93,7 @@ export const channels: Channel[] = [
     name: 'Kapamilya Channel',
     category: 'Local',
     logo: 'https://i.imgur.com/d3LXERq.png',
-    epgId: 'gsat.KAPAMILYA_CHANNEL',
+    epgId: 'kapamilya-channel',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/kapamilya-channel-hd/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -106,7 +106,7 @@ export const channels: Channel[] = [
     name: 'GMA',
     category: 'Local',
     logo: 'https://i.imgur.com/D3qGmme.png',
-    epgId: 'gsat.GMA_7',
+    epgId: 'gma',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/gma-7/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -119,7 +119,7 @@ export const channels: Channel[] = [
     name: 'GTV',
     category: 'Local',
     logo: 'https://i.imgur.com/YwKq8Ta.png',
-    epgId: 'gsat.GTV',
+    epgId: 'gtv',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/gtv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -132,7 +132,7 @@ export const channels: Channel[] = [
     name: 'TV5',
     category: 'Local',
     logo: 'https://i.imgur.com/vhIcFmV.png',
-    epgId: 'gsat.TV5',
+    epgId: 'tv5',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/tv5/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -149,7 +149,7 @@ export const channels: Channel[] = [
     name: 'One Sports',
     category: 'Local',
     logo: 'https://i.imgur.com/btiNwYt.png',
-    epgId: 'OneSports.ph',
+    epgId: 'cg_onesports_hd',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/one-sports-hd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -166,7 +166,7 @@ export const channels: Channel[] = [
     name: 'A2Z',
     category: 'Local',
     logo: 'https://i.imgur.com/DVSTY3w.png',
-    epgId: 'A2Z.ph',
+    epgId: 'a2z',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/a2z/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -196,7 +196,7 @@ export const channels: Channel[] = [
     name: 'HBO',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/pa2SF5Z.png',
-    epgId: 'HBO.sg',
+    epgId: 'HBO.HD.sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/hbo/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -213,7 +213,7 @@ export const channels: Channel[] = [
     name: 'Cinemax',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/X6H75p2.png',
-    epgId: 'CINEMAX.sg',
+    epgId: 'CINEMAX.(HD).sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/cinemax/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -330,15 +330,15 @@ export const channels: Channel[] = [
   {
     number: 18,
     name: 'Dlife',
-    category: 'Music',
-    logo: 'https://www.jcom.co.jp/service/tv/channel/option_ch/images_v10/logo/logo_mnetHD.png',
+    category: 'Entertainment',
+    logo: 'https://www.jcom.co.jp/service/tv/channel/option_ch/images_v10/logo/icon_54.png',
     epgId: 'jp57',
     epgSource: 'none',
     stream: {
       url: 'https://akariko.netgenx.site/stream/jp/dlife/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('MTV', 'Music'),
+    programs: noScheduleProgram('Dlife', 'Entertainment'),
   },
   {
     number: 31,
@@ -394,7 +394,7 @@ export const channels: Channel[] = [
       url: 'https://akariko.netgenx.site/stream/jp/mnet/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('MTV', 'Music'),
+    programs: noScheduleProgram('MNET', 'Music'),
   },
   {
     number: 52,

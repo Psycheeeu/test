@@ -2,8 +2,10 @@ import { ungzip } from 'pako';
 import { Channel, Program, getDummyEpgId } from './channels';
 
 export const EPG_SOURCE_URLS = [
-  'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://akariko.netgenx.site/epg/kai-epg.xml',
+  'https://github.com/atone77721/CIGNAL_EPG/raw/refs/heads/main/cignal_epg.xml',
+  'https://github.com/atone77721/CIGNAL_EPG/raw/refs/heads/main/clickthecity_epg.xml',
+  'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://iptv-epg.org/files/epg-ph.xml',
   'https://iptv-epg.org/files/epg-sg.xml',
   'https://iptv-epg.org/files/epg-my.xml',
