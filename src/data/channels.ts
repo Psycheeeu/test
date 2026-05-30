@@ -335,7 +335,7 @@ export const channels: Channel[] = [
     epgId: 'jp57',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/dlife/stream-output.m3u8?mode=hls,
+      url: 'https://akariko.netgenx.site/stream/jp/dlife/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('MTV', 'Music'),
