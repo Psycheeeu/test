@@ -310,7 +310,7 @@ export default function App() {
 
   return (
     <div 
-      className="relative w-screen h-screen bg-black overflow-hidden select-none"
+      className="relative h-[100dvh] w-screen bg-black overflow-hidden select-none"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -428,38 +428,38 @@ export default function App() {
       />
 
       {introLoading && (
-        <div
-          className="absolute inset-0 z-[80] flex items-center justify-center bg-black"
-        >
-          <div className="flex min-h-screen w-full flex-col items-center justify-center">
-            <div className="flex h-[90px] w-[90px] items-center justify-center rounded-[26px] border border-white/10 text-white">
-              <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <div className="absolute inset-0 z-[80] flex flex-col items-center justify-center bg-black px-6">
+          <div className="flex flex-1 flex-col items-center justify-center">
+            <div className="flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 text-white sm:h-[90px] sm:w-[90px]">
+              <svg className="h-9 w-9 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 6l-2-3m10 3l2-3M5.5 8.5h13A1.5 1.5 0 0120 10v7a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 014 17v-7a1.5 1.5 0 011.5-1.5z" />
               </svg>
             </div>
-            <div className="mt-8 text-[32px] font-black tracking-[-0.08em] text-white">PsycheFlix</div>
-            <div className="mt-1 text-[11px] font-black uppercase tracking-[0.45em] text-white/35">Live TV</div>
-            <div className="mt-10 h-[3px] w-[200px] overflow-hidden rounded-full bg-white/15">
+            <div className="mt-6 text-2xl font-black tracking-tight text-white sm:mt-8 sm:text-[32px]">PsycheFlix</div>
+            <div className="mt-1 text-[10px] font-black uppercase tracking-[0.4em] text-white/30 sm:text-[11px]">Live TV</div>
+            
+            <div className="mt-8 h-[2px] w-[160px] overflow-hidden rounded-full bg-white/10 sm:mt-10 sm:h-[3px] sm:w-[200px]">
               <div className="h-full w-full origin-left animate-[loadingBar_5s_ease-in-out_forwards] bg-white" />
             </div>
-            <div className="mt-5 text-[10px] font-black uppercase tracking-[0.35em] text-white/25">Loading</div>
+            <div className="mt-4 text-[9px] font-black uppercase tracking-widest text-white/20">Loading</div>
 
-            <div className="mt-10 flex h-10 items-center justify-center">
+            <div className="mt-8 flex h-12 items-center justify-center sm:mt-10">
               {introReady && (
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     dismissIntro();
                   }}
-                  className="rounded-full bg-white px-8 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-black transition-all hover:scale-105 active:scale-95"
+                  className="rounded-full bg-white px-8 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-black transition-all hover:scale-105 active:scale-95"
                 >
                   Start Watching
                 </button>
               )}
             </div>
+
             {introReady && (
-              <div className="mt-4 flex items-center justify-center gap-3">
-                <label className="flex cursor-pointer items-center gap-2.5 text-[11px] font-black uppercase tracking-[0.15em] text-white/40 hover:text-white/60">
+              <div className="mt-4 flex items-center justify-center">
+                <label className="flex cursor-pointer items-center gap-2.5 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-white/60">
                   <input
                     type="checkbox"
                     checked={showNsfw}
@@ -470,8 +470,8 @@ export default function App() {
                 </label>
               </div>
             )}
-            <div className="absolute bottom-[70px] text-[11px] font-black text-white/10">Owned by Psycheee</div>
           </div>
+          <div className="pb-8 text-[10px] font-black uppercase tracking-widest text-white/10">Owned by Psycheee</div>
         </div>
       )}
 
