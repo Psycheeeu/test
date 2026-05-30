@@ -65,6 +65,15 @@ const musicProgram = (): Program[] => [{
   source: 'none',
 }];
 
+const starMProgram = (): Program[] => [{
+  title: 'StarM',
+  startTime: '00:00',
+  endTime: '23:59',
+  description: 'StarM programming block.',
+  genre: 'Music',
+  source: 'none',
+}];
+
 export const channels: Channel[] = [
   {
     number: 1,
@@ -221,7 +230,7 @@ export const channels: Channel[] = [
     name: 'Rock Entertainment',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/6MlNllK.png',
-    epgId: 'ROCKEntertainment.sg',
+    epgId: 'ROCK.Entertainment.(HD).sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/rock-entertainment/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -238,7 +247,7 @@ export const channels: Channel[] = [
     name: 'Rock Action',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/xh8vUt9.png',
-    epgId: 'ROCKAction.sg',
+    epgId: 'ROCK.Action.(HD).sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/rock-action/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -268,11 +277,75 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Rock X Stream', 'Entertainment'),
   },
   {
+    number: 15,
+    name: 'Hits',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/2iKSRM4.png',
+    epgId: 'HITS.(HD).sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/hits-hd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '6d2f8a1c9b5e4c7da1f03e7b9d6c2a55': '37c9835795779f8d848a6119d3270c69' },
+      },
+    },
+    programs: noScheduleProgram('Hits', 'Entertainment'),
+  },
+  {
+    number: 16,
+    name: 'Hits Movies',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/FUaEcJe.png',
+    epgId: 'HITS.Movies.HD..sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/hits-movies/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'f56b57b32d7e4b2cb21748c0b56761a7': '3df06a89aa01b32655a77d93e09e266f' },
+      },
+    },
+    programs: noScheduleProgram('Hits Movies', 'Entertainment'),
+  },
+  {
+    number: 17,
+    name: 'Hits Now',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/POBoG99.png',
+    epgId: 'HITS.NOW.(HD).sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/e44d67c2-ce18-4ea5-9bce-96afb1fecbd5/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '4307def6a29bec082f8c93f1f98e5910': 'a4d49bda8cd29ba2888c732b4e7d9d63' },
+      },
+    },
+    programs: noScheduleProgram('Hits Now', 'Entertainment'),
+  },
+  {
+    number: 18,
+    name: 'Dlife',
+    category: 'Music',
+    logo: 'https://www.jcom.co.jp/service/tv/channel/option_ch/images_v10/logo/logo_mnetHD.png',
+    epgId: 'jp57',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/dlife/stream-output.m3u8?mode=hls,
+      type: 'hls',
+    },
+    programs: noScheduleProgram('MTV', 'Music'),
+  },
+  {
     number: 31,
     name: 'Animax',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QxTehhs.png',
-    epgId: 'Animax.sg',
+    epgId: 'Animax.(HD).sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/animax/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
@@ -289,7 +362,7 @@ export const channels: Channel[] = [
     name: 'Aniplus',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QgRMmBS.png',
-    epgId: 'ANIPLUS.sg',
+    epgId: 'ANIPLUS.HD.sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://amg18481-amg18481c1-amgplt0352.playout.now3.amagi.tv/playlist/amg18481-amg18481c1-amgplt0352/playlist.m3u8',
@@ -386,7 +459,7 @@ export const channels: Channel[] = [
       url: 'https://lbgo.bozztv.com/ssh101/ssh101/starmchannel/playlist.m3u8',
       type: 'hls',
     },
-    programs: noScheduleProgram('StarM', 'Music'),
+    programs: starMProgram(),
   },
   {
     number: 100,
@@ -411,7 +484,7 @@ export const channels: Channel[] = [
     name: 'Pigoo',
     category: 'NSFW',
     logo: 'https://xuanzi-storage.netgenx.site/icons/icon_94.png',
-    epgId: 'pigoo',
+    epgId: 'jp97',
     epgSource: 'none',
     stream: { url: 'https://akariko.netgenx.site/stream/jp/pigoo_nsfw/stream-output.m3u8?mode=hls', type: 'hls' },
     isAdult: true,
