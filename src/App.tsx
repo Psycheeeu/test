@@ -68,13 +68,13 @@ export default function App() {
       if (absDx > absDy) {
         // Horizontal swipe
         if (dx < 0) {
-          // Left swipe
-          if (!showVideoOptions) toggleChannelSidebar();
-          else setShowVideoOptions(false);
-        } else {
-          // Right swipe
+          // Left swipe -> Settings
           if (!showChannelSidebar) toggleVideoOptions();
           else setShowChannelSidebar(false);
+        } else {
+          // Right swipe -> Guide
+          if (!showVideoOptions) toggleChannelSidebar();
+          else setShowVideoOptions(false);
         }
       } else {
         // Vertical swipe - only if sidebars are closed
