@@ -66,6 +66,7 @@ const musicProgram = (): Program[] => [{
 }];
 
 export const channels: Channel[] = [
+  {
     number: 1,
     name: 'WELCOME!',
     category: 'Welcome',
