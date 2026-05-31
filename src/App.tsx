@@ -17,7 +17,7 @@ export default function App() {
   const [introLoading, setIntroLoading] = useState(true);
   const [showNsfw, setShowNsfw] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [favorites, setFavorites] = useState<number[]>([1]);
+  const [favorites, setFavorites] = useState<number[]>([]);
   const [streamStatus, setStreamStatus] = useState('idle');
   const [streamInfo, setStreamInfo] = useState<StreamInfo>(defaultStreamInfo);
   const [videoSettings, setVideoSettings] = useState<VideoSettings>(defaultSettings);
@@ -331,6 +331,12 @@ export default function App() {
       {/* Channel info overlay */}
       <ChannelInfo channel={currentChannel} visible={!introLoading && showChannelInfo} streamInfo={streamInfo} />
 
+      {!introLoading && showChannelInfo && !showChannelSidebar && !showVideoOptions && (
+        <div className="pointer-events-none absolute right-8 top-8 z-20 font-mono text-[48px] font-black leading-none tracking-[0.04em] text-white/45 drop-shadow-2xl sm:right-12 sm:top-10">
+          {String(currentChannel.number).padStart(3, '0')}
+        </div>
+      )}
+
       {/* Channel Sidebar (left arrow) */}
       <ChannelSidebar
         channels={visibleLineup}
@@ -348,7 +354,6 @@ export default function App() {
           setChannelSidebarMode('channels');
         }}
         favorites={favorites}
-        onToggleFavorite={toggleFavorite}
       />
 
       {/* Video Options (right arrow) */}
