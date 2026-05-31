@@ -1039,11 +1039,11 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://php.946985.filegear-sg.me/mytv265.php?id=CKIX',
+      url: 'https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/kix_hd1/default/index.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
-        clearkeys: { '3b4a44c5ef3217c55a357ad976d328b2': 'f3355e5a30722e631031b851642c27f1' },
+        clearkeys: { 'c9d4b7a18e2f4d6c9a103f5b7e1c2d88': '7f3139092bf87d8aa51ee40e6294d376' },
       },
     },
     programs: noScheduleProgram('Kix', 'Foreign'),
@@ -1135,7 +1135,7 @@ export const channels: Channel[] = [
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/tap-action-flix/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'dash',
-      drm: { scheme: '', clearkeys: { '': '' }, },
+      drm: { scheme: '', clearkeys: { '' : '' }, },
     },
     programs: noScheduleProgram('Tap ActionFlix', 'Entertainment'),
   },
