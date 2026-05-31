@@ -337,14 +337,48 @@ export const channels: Channel[] = [
     number: 18,
     name: 'Solarflix',
     category: 'Local',
-    logo: 'https://i.imgur.com/P1mCl2k.png',
+    logo: 'https://i.imgur.com/KLdsqfm.png',
     epgId: '',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/solarflix/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
       type: 'hls',
     },
-    programs: noScheduleProgram('DZRH', 'Local'),
+    programs: noScheduleProgram('Solarflix', 'Local'),
+  },
+  {
+    number: 19,
+    name: 'Premier Sports',
+    category: 'Sports',
+    logo: 'https://i.imgur.com/VzWOJHn.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/premier-sports/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'b8b595299fdf41c1a3481fddeb0b55e4': 'cd2b4ad0eb286239a4a022e6ca5fd007' },
+      },
+    },
+    programs: noScheduleProgram('Premier Sports', 'Sports'),
+  },
+  {
+    number: 20,
+    name: 'Premier Sports 2',
+    category: 'Sports',
+    logo: 'https://i.imgur.com/2HVWtx0.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/premier-sports-2/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '59454adb530b4e0784eae62735f9d850': '61100d0b8c4dd13e4eb8b4851ba192cc' },
+      },
+    },
+    programs: noScheduleProgram('Premier Sports 2', 'Sports'),
   },
 ];
 
