@@ -1216,6 +1216,79 @@ export const channels: Channel[] = [
     },
     programs: noScheduleProgram('UAAP Varsity', 'Foreign'),
   },
+  {
+    number: 76,
+    name: 'Deutsche Welle',
+    category: 'News',
+    logo: 'https://i.imgur.com/UtR5MHV.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Deutsche Welle', 'News'),
+  },
+  {
+    number: 77,
+    name: 'Tap Sports',
+    category: 'Sports',
+    logo: 'https://i.imgur.com/aeRpXyj.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/tap-sports/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'eabd2d95c89e42f2b0b0b40ce4179ea0': '0e7e35a07e2c12822316c0dc4873903f' },
+      },
+    },
+    programs: noScheduleProgram('Tap Sports', 'Sports'),
+  },
+  {
+    number: 78,
+    name: 'Blast Movies',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/yVlZBrR.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://amg19223-amg19223c7-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c7-amgplt0351/playlist.m3u8',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Blast Movies', 'Entertainment'),
+  },
+  {
+    number: 79,
+    name: 'Abante Radyo',
+    category: 'Local',
+    logo: 'https://i.imgur.com/seVOqBj.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://amg19223-amg19223c12-amgplt0352.playout.now3.amagi.tv/playlist/amg19223-amg19223c12-amgplt0352/playlist.m3u8',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Abante Radyo', 'Local'),
+  },
+  {
+    number: 80,
+    name: 'Warner TV',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/Hy26eiy.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/warner-tv/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '4503cf86bca3494ab95a77ed913619a0': 'afc9c8f627fb3fb255dee8e3b0fe1d71' },
+      },
+    },
+    programs: noScheduleProgram('Warner TV', 'Entertainment'),
+  },
 ];
 
 export function getCurrentProgram(channel: Channel): Program {
