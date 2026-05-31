@@ -928,7 +928,7 @@ export const channels: Channel[] = [
     name: 'WOWOW Cinema',
     category: 'Foreign',
     logo: 'https://www.starcat.co.jp/ch/upload/channel/34/wowow-cinema_logo.jpg',
-    epgId: 'cs18',
+    epgId: 'bs07',
     epgSource: 'none',
     stream: {
       url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
@@ -941,7 +941,7 @@ export const channels: Channel[] = [
     name: 'WOWOW Live',
     category: 'Foreign',
     logo: 'https://www.starcat.co.jp/ch/upload/channel/33/wowow-live_logo.jpg',
-    epgId: 'cs18',
+    epgId: 'jp31',
     epgSource: 'none',
     stream: {
       url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
@@ -954,7 +954,7 @@ export const channels: Channel[] = [
     name: 'WOWOW Plus',
     category: 'Foreign',
     logo: 'https://www.starcat.co.jp/ch/upload/channel/4/cinefilwowow_logo.jpg',
-    epgId: 'cs18',
+    epgId: 'jp33',
     epgSource: 'none',
     stream: {
       url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
@@ -967,7 +967,7 @@ export const channels: Channel[] = [
     name: 'WOWOW Prime',
     category: 'Foreign',
     logo: 'https://www.starcat.co.jp/ch/upload/channel/32/wowow-prime_logo.jpg',
-    epgId: 'cs18',
+    epgId: 'bs12',
     epgSource: 'none',
     stream: {
       url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
@@ -991,6 +991,79 @@ export const channels: Channel[] = [
       },
     },
     programs: noScheduleProgram('FX', 'Entertainment'),
+  },
+  {
+    number: 61,
+    name: 'Cinema One',
+    category: 'Local Entertainment',
+    logo: 'https://i.imgur.com/hJ6MBiA.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/cinema-one/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Cinema One', 'Local Entertainment'),
+  },
+  {
+    number: 62,
+    name: 'Cinemo!',
+    category: 'Local Entertainment',
+    logo: 'https://i.imgur.com/Pf8CNau.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/cinemo/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Cinemo', 'Local Entertainment'),
+  },
+  {
+    number: 63,
+    name: 'Jeepney TV',
+    category: 'Local Entertainment',
+    logo: 'https://i.imgur.com/Pf8CNau.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/converge-jeepney-tv/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Jeepney TV', 'Local Entertainment'),
+  },
+  {
+    number: 64,
+    name: 'Kix',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/bWt954E.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/kix-ph/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'c9d4b7a18e2f4d6c9a103f5b7e1c2d88': '7f3139092bf87d8aa51ee40e6294d376' },
+      },
+    },
+    programs: noScheduleProgram('Kix', 'Foreign'),
+  },
+  {
+    number: 65,
+    name: 'Thrill',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/LCX2guc.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/thrill/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '928114ffb2394d14b5585258f70ed183': 'a82edc340bc73447bac16cdfed0a4c62' },
+      },
+    },
+    programs: noScheduleProgram('Celestial Movies Pinoy', 'Local'),
   },
 ];
 
