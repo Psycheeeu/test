@@ -944,7 +944,7 @@ export const channels: Channel[] = [
     epgId: 'jp31',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_live/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('WOWOW Live', 'Foreign'),
@@ -957,7 +957,7 @@ export const channels: Channel[] = [
     epgId: 'jp33',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_plus/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('WOWOW Plus', 'Foreign'),
@@ -970,7 +970,7 @@ export const channels: Channel[] = [
     epgId: 'bs12',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_prime/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('WOWOW Prime', 'Foreign'),
