@@ -43,7 +43,11 @@ function textFrom(parent: Element, tagName: string) {
 }
 
 function normalizeId(value: string) {
-  return value.trim().toLowerCase();
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/&amp;/g, '&')
+    .replace(/[^\p{L}\p{N}]+/gu, '');
 }
 
 function makeNoScheduleProgram(channel: Channel): Program[] {
@@ -68,9 +72,9 @@ async function fetchOneEpgXml(url: string) {
 
   for (const source of sources) {
     try {
-      // Use a shorter timeout for EPG fetching to skip slow/hanging sources quickly
+      // Give large .xml.gz sources enough time while still skipping hanging requests.
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 8000);
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
 
       const response = await fetch(source, { 
         cache: 'force-cache',
@@ -194,6 +198,21 @@ function getDeclaredChannelIds(xml: Document) {
   return ids;
 }
 
+function buildProgrammeIdMap(xml: Document, requestedIds: Set<string>) {
+  const programmeIds = new Map<string, string>();
+  const requestedNormalized = new Map(Array.from(requestedIds).map((id) => [normalizeId(id), id]));
+  const programmes = xml.getElementsByTagName('programme');
+
+  for (let i = 0; i < programmes.length; i++) {
+    const id = programmes[i].getAttribute('channel') ?? '';
+    const normalized = normalizeId(id);
+    const configuredId = requestedIds.has(id) ? id : requestedNormalized.get(normalized);
+    if (configuredId) programmeIds.set(id, configuredId);
+  }
+
+  return programmeIds;
+}
+
 function findMatchingId(configuredEpgId: string | undefined, declaredIds: Set<string>) {
   if (!configuredEpgId) return undefined;
   if (declaredIds.has(configuredEpgId)) return configuredEpgId;
@@ -218,15 +237,22 @@ export async function loadEpgForChannels(lineup: Channel[]) {
       const declaredIds = getDeclaredChannelIds(xml);
       declaredIds.forEach((id) => allDeclaredIds.add(id));
 
-      const idsForThisSource = new Set(
-        Array.from(declaredIds).filter((id) => requestedIds.has(id) || requestedIdsLower.has(normalizeId(id)))
-      );
+      const idsForThisSource = new Set<string>();
+      Array.from(declaredIds).forEach((id) => {
+        if (requestedIds.has(id) || requestedIdsLower.has(normalizeId(id))) idsForThisSource.add(id);
+      });
+      buildProgrammeIdMap(xml, requestedIds).forEach((configuredId, programmeId) => {
+        idsForThisSource.add(programmeId);
+        allDeclaredIds.add(configuredId);
+      });
       const programmes = parseProgrammes(xml, idsForThisSource);
+      const programmeIdMap = buildProgrammeIdMap(xml, requestedIds);
 
       programmes.forEach((programs, id) => {
-        const existing = allProgrammes.get(id) ?? [];
-        allProgrammes.set(id, [...existing, ...programs].sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0)));
-        sourceById.set(id, epg.url);
+        const outputId = programmeIdMap.get(id) ?? id;
+        const existing = allProgrammes.get(outputId) ?? [];
+        allProgrammes.set(outputId, [...existing, ...programs].sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0)));
+        sourceById.set(outputId, epg.url);
       });
     }
 
