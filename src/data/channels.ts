@@ -655,40 +655,6 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Rock X Stream', 'Entertainment'),
   },
   {
-    number: 12,
-    name: 'Rock Entertainment',
-    category: 'Entertainment',
-    logo: 'https://i.imgur.com/6MlNllK.png',
-    epgId: 'ROCKEntertainment.sg',
-    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
-    stream: {
-      url: 'https://converse.nathcreqtives.com/channels/rock-entertainment/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
-      type: 'dash',
-      drm: {
-        scheme: 'clearkey',
-        clearkeys: { 'e4ee0cf8ca9746f99af402ca6eed8dc7': 'be2a096403346bc1d0bb0f812822bb62' },
-      },
-    },
-    programs: noScheduleProgram('Rock Entertainment', 'Entertainment'),
-  },
-  {
-    number: 13,
-    name: 'Rock Action',
-    category: 'Entertainment',
-    logo: 'https://i.imgur.com/xh8vUt9.png',
-    epgId: 'ROCKAction.sg',
-    epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
-    stream: {
-      url: 'https://converse.nathcreqtives.com/channels/rock-action/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
-      type: 'dash',
-      drm: {
-        scheme: 'clearkey',
-        clearkeys: { '0f852fb8412b11edb8780242ac120002': '4cbc004d8c444f9f996db42059ce8178' },
-      },
-    },
-    programs: noScheduleProgram('Rock Action', 'Entertainment'),
-  },
-  {
     number: 39,
     name: 'tvN',
     category: 'Entertainment',
