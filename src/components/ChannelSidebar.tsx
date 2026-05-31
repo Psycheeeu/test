@@ -10,7 +10,6 @@ interface ChannelSidebarProps {
   onSelectChannel: (channel: Channel) => void;
   onClose: () => void;
   favorites: number[];
-  onToggleFavorite: (channelNumber: number) => void;
 }
 
 export default function ChannelSidebar({
@@ -22,7 +21,6 @@ export default function ChannelSidebar({
   onSelectChannel,
   onClose,
   favorites,
-  onToggleFavorite,
 }: ChannelSidebarProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchOpen, setSearchOpen] = useState(false);
@@ -136,34 +134,34 @@ export default function ChannelSidebar({
     <div className="absolute inset-0 z-30 flex">
       <div className="absolute inset-0 bg-black/55 backdrop-blur-[3px]" onClick={onClose} />
 
-      <aside className="relative z-10 flex h-full w-full sm:w-[461px] flex-col border-r border-white/[0.03] bg-[#060608]/98 shadow-[30px_0_70px_rgba(0,0,0,0.78)] guide-slide">
-        <div className="px-5 pb-4 pt-10 sm:pt-[41px]">
-          <div className="mb-6 sm:mb-[30px] flex items-start justify-between">
+      <aside className="relative z-10 flex h-full w-full sm:w-[347px] flex-col border-r border-white/[0.03] bg-[#060608]/98 shadow-[30px_0_70px_rgba(0,0,0,0.78)] guide-slide">
+        <div className="px-5 pb-3 pt-8 sm:pt-9">
+          <div className="mb-9 flex items-start justify-between">
             <div className="flex items-center gap-5">
               <div>
-                <div className="text-[11px] font-black uppercase tracking-[0.28em] text-sky-300">Your Only Cable TV</div>
-                <h2 className="text-xl sm:text-[24px] font-black tracking-[-0.05em] text-white">PsycheFlix</h2>
-                <div className="mt-[2px] text-[10px] sm:text-[12px] font-medium uppercase tracking-[0.04em] text-white/35">Owned by Psycheee</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.45em] text-sky-300">Your Only Cable TV</div>
+                <h2 className="mt-1 text-[26px] font-black leading-none tracking-[-0.07em] text-white">PsycheFlix</h2>
+                <div className="mt-2 text-[12px] font-black uppercase tracking-[0.04em] text-white/32">Owned by Psycheee</div>
               </div>
             </div>
-            <button onClick={onClose} className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/5 text-white/60 hover:bg-white hover:text-black transition-all">
-               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+            <button onClick={onClose} className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-white/60 transition-all hover:bg-white hover:text-black">
+               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          <div className="mb-4 sm:mb-[26px] flex items-center justify-between">
-            <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.08em] text-white/36">
+          <div className="mb-3 flex items-center justify-between">
+            <div className="text-[12px] font-black uppercase tracking-[0.08em] text-white/36">
               {mode === 'categories' ? 'Categories' : 'Channels'}
             </div>
             {mode !== 'categories' && (
               <button
                 onClick={() => setSearchOpen((value) => !value)}
-                className="flex h-8 w-8 items-center justify-center text-white/85 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center text-white/85 hover:text-white"
                 aria-label="Search channels"
               >
-                <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.1}>
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.1}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" />
                 </svg>
               </button>
@@ -171,14 +169,14 @@ export default function ChannelSidebar({
           </div>
 
           {searchOpen && mode !== 'categories' && (
-            <div className="mb-4">
+            <div className="mb-3">
               <input
                 ref={searchInputRef}
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 onKeyDown={(event) => event.stopPropagation()}
                 placeholder="Search channels"
-                className="h-12 w-full rounded-[16px] border border-white/10 bg-[#11171a] px-4 text-sm font-semibold text-white outline-none placeholder:text-white/28 focus:border-white/25"
+                className="h-11 w-full rounded-[14px] border border-white/10 bg-[#11171a] px-4 text-sm font-semibold text-white outline-none placeholder:text-white/28 focus:border-white/25"
               />
             </div>
           )}
@@ -226,7 +224,7 @@ export default function ChannelSidebar({
                 }}
                 onClick={() => onSelectChannel(channel)}
                 onMouseEnter={() => setFocusedChannelIndex(index)}
-                className={`group relative mb-2 grid h-20 sm:h-[93px] cursor-pointer grid-cols-[48px_54px_1fr] sm:grid-cols-[58px_64px_1fr] items-center rounded-[18px] sm:rounded-[20px] px-4 sm:px-[26px] py-0 transition-all ${
+                className={`group relative mb-2 grid h-20 sm:h-[82px] cursor-pointer grid-cols-[54px_1fr_44px] items-center rounded-[18px] sm:rounded-[20px] px-4 py-0 transition-all ${
                   isFocused
                     ? 'border border-white/35 bg-white text-black shadow-[0_0_35px_rgba(255,255,255,0.14)]'
                     : isActive
@@ -234,12 +232,6 @@ export default function ChannelSidebar({
                     : 'border border-transparent bg-[#11171a] text-white hover:bg-[#151b1e]'
                 }`}
               >
-                <div className="flex items-center">
-                  <div className={`font-mono text-sm sm:text-[14px] font-black ${isFocused ? 'text-black' : 'text-white/92'}`}>
-                    {String(channel.number).padStart(3, '0')}
-                  </div>
-                </div>
-
                 <div className="flex min-w-0 items-center">
                   <div
                     className={`flex h-10 w-10 sm:h-[48px] sm:w-[48px] shrink-0 items-center justify-center rounded-[10px] sm:rounded-[12px] text-base sm:text-xl ${isFocused ? 'bg-black/10' : 'bg-[#252b2e]'}`}
@@ -252,22 +244,18 @@ export default function ChannelSidebar({
                   </div>
                 </div>
 
-                <div className="min-w-0 pl-3 sm:pl-[16px]">
+                <div className="min-w-0 pl-3">
                   <div className="flex items-center gap-2">
                     <span className={`truncate text-sm sm:text-[16px] font-black uppercase tracking-[-0.03em] ${isFocused ? 'text-black' : 'text-white'}`}>{channel.name}</span>
-                    <button
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        onToggleFavorite(channel.number);
-                      }}
-                      className={`text-xs ${isFavorite ? 'text-amber-400' : isFocused ? 'text-black/25' : 'text-white/0 group-hover:text-white/20'}`}
-                    >
-                      {isFavorite ? '★' : '☆'}
-                    </button>
+                    {isFavorite && <span className="text-xs text-amber-400">★</span>}
                   </div>
                   <div className={`mt-0.5 sm:mt-[5px] truncate text-[10px] sm:text-[13px] font-medium ${isFocused ? 'text-black/55' : 'text-white/70'}`}>
                       {program.title}
                   </div>
+                </div>
+
+                <div className={`justify-self-end self-start pt-3 font-mono text-[12px] font-black ${isFocused ? 'text-black/55' : 'text-white/32'}`}>
+                  {String(channel.number).padStart(3, '0')}
                 </div>
               </div>
             );
