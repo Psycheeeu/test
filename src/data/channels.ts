@@ -66,6 +66,15 @@ const musicProgram = (): Program[] => [{
 }];
 
 const starMProgram = (): Program[] => [{
+  title: 'StarM',
+  startTime: '00:00',
+  endTime: '23:59',
+  description: 'StarM programming block.',
+  genre: 'Music',
+  source: 'none',
+}];
+
+export const channels: Channel[] = [
   {
     number: 1,
     name: 'WELCOME!',
