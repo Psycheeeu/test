@@ -560,7 +560,7 @@ export const channels: Channel[] = [
     number: 33,
     name: 'CNBC',
     category: 'News',
-    logo: 'https://i.imgur.com/XpZtyIK.png',
+    logo: 'https://i.imgur.com/Jlcamdx.png',
     epgId: '',
     epgSource: 'none',
     stream: {
@@ -892,7 +892,7 @@ export const channels: Channel[] = [
       type: 'dash',
       drm: {
         scheme: 'clearkey',
-        clearkeys: { '2e53f8d8a5e94bca8f9a1e16ce67df33': '3471b2464b5c7b033a03bb8307d9fa35' },
+        clearkeys: { '96701d297d1241e492d41c397631d857': 'ca2931211c1a261f082a3a2c4fd9f91b' },
       },
     },
     programs: noScheduleProgram('TMC', 'Local'),
@@ -914,7 +914,7 @@ export const channels: Channel[] = [
     number: 55,
     name: 'DZMM Teleradyo',
     category: 'News',
-    logo: 'https://i.imgur.com/XzVYXaV.png',
+    logo: 'https://i.imgur.com/zlMDkeG.png',
     epgId: '',
     epgSource: 'none',
     stream: {
@@ -922,6 +922,75 @@ export const channels: Channel[] = [
       type: 'hls',
     },
     programs: noScheduleProgram('DZMM Teleradyo', 'News'),
+  },
+  {
+    number: 56,
+    name: 'WOWOW Cinema',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/34/wowow-cinema_logo.jpg',
+    epgId: 'cs18',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Cinema', 'Foreign'),
+  },
+  {
+    number: 57,
+    name: 'WOWOW Live',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/33/wowow-live_logo.jpg',
+    epgId: 'cs18',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Live', 'Foreign'),
+  },
+  {
+    number: 58,
+    name: 'WOWOW Plus',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/4/cinefilwowow_logo.jpg',
+    epgId: 'cs18',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Plus', 'Foreign'),
+  },
+  {
+    number: 59,
+    name: 'WOWOW Prime',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/32/wowow-prime_logo.jpg',
+    epgId: 'cs18',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Prime', 'Foreign'),
+  },
+  {
+    number: 60,
+    name: 'FX',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/gbvwqxl.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/fx/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '8ce1ec3e2402a170cbe13b79ce9bb30f': '82fdcfde32cc02673547e58b50e2b5ae' },
+      },
+    },
+    programs: noScheduleProgram('FX', 'Entertainment'),
   },
 ];
 
