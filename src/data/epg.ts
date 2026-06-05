@@ -5,7 +5,7 @@ export const EPG_SOURCE_URLS = [
   'https://akariko.netgenx.site/epg/kai-epg.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',
-  'https://github.com/atone77721/CIGNAL_EPG/raw/refs/heads/main/clickthecity_epg.xml',
+  'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml',
   'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_SG1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_MY1.xml.gz',
