@@ -598,7 +598,7 @@ export const channels: Channel[] = [
     name: 'Aniplus',
     category: 'Foreign',
     logo: 'https://i.imgur.com/QgRMmBS.png',
-    epgId: 'ANIPLUS.sg',
+    epgId: 'AniplusAsia.sg',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
       url: 'https://amg18481-amg18481c1-amgplt0352.playout.now3.amagi.tv/playlist/amg18481-amg18481c1-amgplt0352/playlist.m3u8',
@@ -760,7 +760,7 @@ export const channels: Channel[] = [
     name: 'Trace Sports Stars',
     category: 'Sports',
     logo: 'https://i.imgur.com/rR5SYHY.png',
-    epgId: '',
+    epgId: 'TraceSportStars.fr',
     epgSource: 'none',
     stream: {
       url: 'https://tracetv-sportstarts-vidaa.amagi.tv/playlist.m3u8',
