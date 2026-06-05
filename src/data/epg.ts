@@ -3,23 +3,22 @@ import { Channel, Program, getDummyEpgId } from './channels';
 
 export const EPG_SOURCE_URLS = [
   'https://akariko.netgenx.site/epg/kai-epg.xml',
-  'https://github.com/atone77721/CIGNAL_EPG/raw/refs/heads/main/clickthecity_epg.xml',
-  'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',
+  'https://github.com/atone77721/CIGNAL_EPG/raw/refs/heads/main/clickthecity_epg.xml',
+  'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_SG1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_MY1.xml.gz',
 ];
 
+// --- UTILS ---
+
 function parseXmltvDate(value: string) {
   const match = value.match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(?:\s*([+-]\d{4}))?/);
   if (!match) return null;
-
   const [, y, mo, d, h, mi, s, zone] = match;
   const utc = Date.UTC(Number(y), Number(mo) - 1, Number(d), Number(h), Number(mi), Number(s));
-
   if (!zone) return utc;
-
   const sign = zone.startsWith('-') ? -1 : 1;
   const offsetHours = Number(zone.slice(1, 3));
   const offsetMinutes = Number(zone.slice(3, 5));
@@ -28,11 +27,7 @@ function parseXmltvDate(value: string) {
 }
 
 function formatTime(ms: number) {
-  return new Date(ms).toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  });
+  return new Date(ms).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 }
 
 function textFrom(parent: Element, tagName: string) {
@@ -40,11 +35,7 @@ function textFrom(parent: Element, tagName: string) {
 }
 
 function normalizeId(value: string) {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/&amp;/g, '&')
-    .replace(/[^\p{L}\p{N}]+/gu, '');
+  return value.trim().toLowerCase().replace(/&amp;/g, '&').replace(/[^\p{L}\p{N}]+/gu, '');
 }
 
 function makeNoScheduleProgram(channel: Channel): Program[] {
@@ -58,6 +49,8 @@ function makeNoScheduleProgram(channel: Channel): Program[] {
   }];
 }
 
+// --- FETCHING ---
+
 async function fetchOneEpgXml(url: string) {
   const sources = [
     url,
@@ -65,124 +58,77 @@ async function fetchOneEpgXml(url: string) {
     `https://corsproxy.io/?${encodeURIComponent(url)}`,
   ];
 
-  let lastError: unknown = null;
-
   for (const source of sources) {
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-      const response = await fetch(source, {
-        cache: 'force-cache',
-        signal: controller.signal,
-      });
+      const response = await fetch(source, { cache: 'force-cache', signal: controller.signal });
       clearTimeout(timeoutId);
 
-      if (!response.ok) throw new Error(`EPG request failed: ${response.status}`);
+      if (!response.ok) continue;
 
       const bytes = new Uint8Array(await response.arrayBuffer());
       const isGzip = bytes[0] === 0x1f && bytes[1] === 0x8b;
-      const xml = isGzip
-        ? ungzip(bytes, { to: 'string' })
-        : new TextDecoder().decode(bytes);
+      const xml = isGzip ? ungzip(bytes, { to: 'string' }) : new TextDecoder().decode(bytes);
 
-      if (xml.includes('<tv')) {
-        return { url, loadedUrl: source, xml };
-      }
-
-      throw new Error('EPG response did not look like XMLTV');
-    } catch (error) {
-      lastError = error;
-    }
+      if (xml.includes('<tv')) return { url, xml };
+    } catch (e) { /* continue to next source */ }
   }
-
-  console.warn(`EPG source unavailable: ${url}`, lastError);
   return null;
 }
 
-async function fetchEpgXmls() {
-  const results = await Promise.all(EPG_SOURCE_URLS.map(fetchOneEpgXml));
-  const epgs = results.filter(Boolean) as Array<{ url: string; loadedUrl: string; xml: string }>;
-
-  if (epgs.length === 0) {
-    throw new Error('Unable to load any EPG source');
-  }
-
-  return epgs;
-}
+// --- PARSING CORE ---
 
 /**
- * Build a map from every raw XML channel id → the configured epgId it corresponds to.
- * This means allProgrammes will always be keyed by the configured epgId,
- * making lookup reliable later.
+ * Parses a single XML file and maps programmes directly to the user's requested EPG IDs.
+ * This prevents the "ID Mismatch" bug by ensuring the Map key is always the actual channel.epgId.
  */
-function buildXmlIdToConfiguredIdMap(
-  xml: Document,
-  configuredIds: Set<string>,
-  normalizedToConfigured: Map<string, string>
-): Map<string, string> {
-  const map = new Map<string, string>();
+function parseXmlToUserMap(xml: Document, requestedIds: Set<string>, normRequestedMap: Map<string, string>): Map<string, Program[]> {
+  const userProgramMap = new Map<string, Program[]>();
+  const xmlToUserMapping = new Map<string, string>(); // Maps XML ID -> User's EPG ID
 
-  // Map from declared <channel> nodes
+  // 1. Create a mapping table by looking at <channel> tags
   const channelNodes = xml.getElementsByTagName('channel');
   for (let i = 0; i < channelNodes.length; i++) {
     const node = channelNodes[i];
-    const rawId = node.getAttribute('id') ?? '';
-    if (!rawId) continue;
-
-    // Exact match
-    if (configuredIds.has(rawId)) {
-      map.set(rawId, rawId);
-      continue;
+    const xmlId = node.getAttribute('id') ?? '';
+    
+    // Check the ID itself
+    const normXmlId = normalizeId(xmlId);
+    if (normXmlId && normRequestedMap.has(normXmlId)) {
+      xmlToUserMapping.set(xmlId, normRequestedMap.get(normXmlId)!);
+      xmlToUserMapping.set(normXmlId, normRequestedMap.get(normXmlId)!);
     }
 
-    // Normalized match
-    const configuredId = normalizedToConfigured.get(normalizeId(rawId));
-    if (configuredId) {
-      map.set(rawId, configuredId);
+    // Check display-names (common in EPGs)
+    const displayNames = node.getElementsByTagName('display-name');
+    for (let j = 0; j < displayNames.length; j++) {
+      const name = displayNames[j].textContent?.trim() ?? '';
+      const normName = normalizeId(name);
+      if (normName && normRequestedMap.has(normName)) {
+        const targetId = normRequestedMap.get(normName)!;
+        xmlToUserMapping.set(xmlId, targetId);
+        xmlToUserMapping.set(name, targetId);
+        xmlToUserMapping.set(normName, targetId);
+      }
     }
   }
 
-  // Also scan <programme channel=""> attributes directly
-  // in case some sources have programmes without a <channel> declaration
+  // 2. Parse programmes and use the mapping table
   const programmes = xml.getElementsByTagName('programme');
   for (let i = 0; i < programmes.length; i++) {
-    const rawId = programmes[i].getAttribute('channel') ?? '';
-    if (!rawId || map.has(rawId)) continue;
-
-    if (configuredIds.has(rawId)) {
-      map.set(rawId, rawId);
-      continue;
-    }
-
-    const configuredId = normalizedToConfigured.get(normalizeId(rawId));
-    if (configuredId) {
-      map.set(rawId, configuredId);
-    }
-  }
-
-  return map;
-}
-
-/**
- * Parse all <programme> elements from the XML.
- * Returns a map keyed by the CONFIGURED epgId (not the raw XML id).
- */
-function parseProgrammes(
-  xml: Document,
-  xmlIdToConfiguredId: Map<string, string>
-): Map<string, Program[]> {
-  const map = new Map<string, Program[]>();
-  const programmes = xml.getElementsByTagName('programme');
-  const len = programmes.length;
-
-  for (let i = 0; i < len; i++) {
     const item = programmes[i];
-    const rawId = item.getAttribute('channel') ?? '';
+    const rawXmlId = item.getAttribute('channel') ?? '';
+    
+    // Find which user-requested ID this belongs to
+    let targetId = xmlToUserMapping.get(rawXmlId) || xmlToUserMapping.get(normalizeId(rawXmlId));
+    
+    // Fallback: Direct normalized check if not found in channel tags
+    if (!targetId) {
+      targetId = normRequestedMap.get(normalizeId(rawXmlId));
+    }
 
-    // Resolve to configured id - key used for allProgrammes
-    const configuredId = xmlIdToConfiguredId.get(rawId);
-    if (!configuredId) continue;
+    if (!targetId) continue;
 
     const startAttr = item.getAttribute('start');
     const stopAttr = item.getAttribute('stop');
@@ -190,150 +136,89 @@ function parseProgrammes(
 
     const startMs = parseXmltvDate(startAttr);
     const endMs = parseXmltvDate(stopAttr);
-    if (startMs === null || endMs === null) continue;
-
-    const title = textFrom(item, 'title') || 'Untitled Program';
-    const description = textFrom(item, 'desc') || 'No description available from EPG source.';
-    const genre = textFrom(item, 'category') || 'Music';
-    const ratingNode = item.getElementsByTagName('value')[0];
-    const rating = ratingNode ? ratingNode.textContent?.trim() : undefined;
+    if (!startMs || !endMs) continue;
 
     const program: Program = {
-      title,
+      title: textFrom(item, 'title') || 'Untitled Program',
       startTime: formatTime(startMs),
       endTime: formatTime(endMs),
-      description,
-      genre,
-      rating,
+      description: textFrom(item, 'desc') || 'No description available.',
+      genre: textFrom(item, 'category') || 'General',
+      rating: item.getElementsByTagName('value')[0]?.textContent?.trim(),
       startMs,
       endMs,
       source: 'epg',
     };
 
-    let list = map.get(configuredId);
-    if (!list) {
-      list = [];
-      map.set(configuredId, list);
-    }
-    list.push(program);
+    const existing = userProgramMap.get(targetId) ?? [];
+    existing.push(program);
+    userProgramMap.set(targetId, existing);
   }
 
-  // Sort each channel's programmes chronologically
-  for (const programs of map.values()) {
-    programs.sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0));
-  }
-
-  return map;
+  return userProgramMap;
 }
 
-/**
- * Look up programmes for a channel.
- * Tries exact match first, then normalized match.
- * This is safe because allProgrammes is always keyed by configuredId.
- */
-function resolvePrograms(
-  configuredEpgId: string,
-  allProgrammes: Map<string, Program[]>
-): Program[] {
-  // 1. Exact match (most cases)
-  const exact = allProgrammes.get(configuredEpgId);
-  if (exact?.length) return exact;
-
-  // 2. Normalized fallback (handles casing / punctuation differences)
-  const normalizedTarget = normalizeId(configuredEpgId);
-  for (const [key, programs] of allProgrammes) {
-    if (normalizeId(key) === normalizedTarget && programs.length) {
-      return programs;
-    }
-  }
-
-  return [];
-}
+// --- MAIN EXPORT ---
 
 export async function loadEpgForChannels(lineup: Channel[]) {
   try {
-    const epgTexts = await fetchEpgXmls();
+    const epgResults = await Promise.all(EPG_SOURCE_URLS.map(fetchOneEpgXml));
+    const validEpgs = epgResults.filter((e): e is { url: string; xml: string } => e !== null);
 
-    // Build a set of all configured epgIds and a normalized → configured map
-    const configuredIds = new Set(
-      lineup.map((ch) => ch.epgId).filter(Boolean) as string[]
-    );
-    const normalizedToConfigured = new Map(
-      Array.from(configuredIds).map((id) => [normalizeId(id), id])
-    );
+    if (validEpgs.length === 0) throw new Error('No EPG sources loaded');
 
-    // allProgrammes is ALWAYS keyed by configured epgId
-    const allProgrammes = new Map<string, Program[]>();
-    const sourceById = new Map<string, string>();
+    // Prepare mapping helpers
+    const requestedIds = new Set<string>();
+    const normRequestedMap = new Map<string, string>(); // normalized -> actual epgId
 
-    for (const epg of epgTexts) {
-      const xml = new DOMParser().parseFromString(epg.xml, 'application/xml');
-      if (xml.getElementsByTagName('parsererror').length > 0) {
-        console.warn(`Skipping malformed EPG XML from ${epg.url}`);
-        continue;
+    lineup.forEach(ch => {
+      if (ch.epgId && ch.epgId !== 'none') {
+        requestedIds.add(ch.epgId);
+        normRequestedMap.set(normalizeId(ch.epgId), ch.epgId);
       }
+    });
 
-      // Single consistent mapping: raw XML id → configured epgId
-      const xmlIdToConfiguredId = buildXmlIdToConfiguredIdMap(
-        xml,
-        configuredIds,
-        normalizedToConfigured
-      );
+    // The Master Map: Key is ALWAYS the actual ch.epgId
+    const masterProgramMap = new Map<string, Program[]>();
 
-      // Parse programmes, already keyed by configured epgId
-      const programmes = parseProgrammes(xml, xmlIdToConfiguredId);
+    for (const epg of validEpgs) {
+      const xmlDoc = new DOMParser().parseFromString(epg.xml, 'application/xml');
+      if (xmlDoc.getElementsByTagName('parsererror').length > 0) continue;
 
-      // Merge into allProgrammes
-      programmes.forEach((programs, configuredId) => {
-        const existing = allProgrammes.get(configuredId) ?? [];
-        const merged = [...existing, ...programs].sort(
-          (a, b) => (a.startMs ?? 0) - (b.startMs ?? 0)
-        );
-        allProgrammes.set(configuredId, merged);
-        sourceById.set(configuredId, epg.url);
+      const sourceMap = parseXmlToUserMap(xmlDoc, requestedIds, normRequestedMap);
+      
+      // Merge sourceMap into masterProgramMap
+      sourceMap.forEach((programs, targetId) => {
+        const existing = masterProgramMap.get(targetId) ?? [];
+        masterProgramMap.set(targetId, [...existing, ...programs]);
       });
     }
 
-    // Map each channel to its resolved programmes
+    // Sort all programs once after merging all sources
+    masterProgramMap.forEach(progs => progs.sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0)));
+
+    // Final mapping to lineup
     return lineup.map((channel) => {
-      const configuredEpgId = channel.epgId;
-      const keepLocalSchedule = !configuredEpgId || configuredEpgId === 'none';
-
-      const epgPrograms = configuredEpgId
-        ? resolvePrograms(configuredEpgId, allProgrammes)
-        : [];
-
-      const hasEpg = epgPrograms.length > 0;
-      const fallbackEpgId = getDummyEpgId(channel);
+      const epgId = channel.epgId;
+      const hasEpg = epgId && masterProgramMap.has(epgId);
+      const programs = hasEpg ? (masterProgramMap.get(epgId) ?? []) : (epgId === 'none' ? channel.programs : makeNoScheduleProgram(channel));
 
       return {
         ...channel,
-        epgId: configuredEpgId,
-        fallbackEpgId: hasEpg ? undefined : fallbackEpgId,
-        epgSource: hasEpg ? ('epg' as const) : ('none' as const),
-        epgUrl: hasEpg ? sourceById.get(configuredEpgId!) : undefined,
-        epgIdFound: hasEpg,
-        programs: hasEpg
-          ? epgPrograms
-          : keepLocalSchedule
-          ? channel.programs
-          : makeNoScheduleProgram(channel),
+        epgId, // Keep configured ID
+        epgSource: hasEpg ? 'epg' : 'none',
+        programs,
+        epgIdFound: !!hasEpg,
+        fallbackEpgId: hasEpg ? undefined : getDummyEpgId(channel),
       };
     });
+
   } catch (error) {
-    console.warn(
-      'EPG unavailable; programme schedules will be empty until the source loads.',
-      error
-    );
-    return lineup.map((channel) => ({
-      ...channel,
-      epgId: channel.epgId,
-      fallbackEpgId: getDummyEpgId(channel),
+    console.warn('EPG loading failed:', error);
+    return lineup.map(ch => ({
+      ...ch,
       epgSource: 'none' as const,
-      programs:
-        !channel.epgId || channel.epgId === 'none'
-          ? channel.programs
-          : makeNoScheduleProgram(channel),
+      programs: ch.epgId === 'none' ? ch.programs : makeNoScheduleProgram(ch),
     }));
   }
 }
