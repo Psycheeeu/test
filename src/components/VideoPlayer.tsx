@@ -14,6 +14,16 @@ async function getShaka() {
     } else if (playerLib.installAllPolyfills) {
       playerLib.installAllPolyfills();
     }
+    
+    // Ensure SMPTE-TT (stpp) support for DASH streams
+    if (playerLib.text && playerLib.text.TextEngine && playerLib.text.Mp4TtmlParser) {
+      try {
+        playerLib.text.TextEngine.registerParser('application/mp4; codecs="stpp"', playerLib.text.Mp4TtmlParser);
+      } catch (e) {
+        // Parser might already be registered
+      }
+    }
+    
     shakaInstance = playerLib;
   }
   return shakaInstance;

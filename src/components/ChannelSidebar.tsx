@@ -144,7 +144,7 @@ export default function ChannelSidebar({
           <div className="mb-9 flex items-start justify-between">
             <div className="flex items-center gap-5">
               <div>
-                <div className="text-[10px] font-black uppercase tracking-[0.45em] text-sky-300">PsycheFlix</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.45em] text-sky-300">いらっしゃいませ！</div>
                 <h2 className="mt-1 text-[26px] font-black leading-none tracking-[-0.07em] text-white">PsycheFlix</h2>
                 <div className="mt-2 text-[12px] font-black uppercase tracking-[0.04em] text-white/32">Owned by Psycheee</div>
               </div>
