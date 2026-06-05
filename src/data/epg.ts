@@ -13,6 +13,7 @@ export const EPG_SOURCE_URLS = [
   'https://www.open-epg.com/files/singapore1.xml.gz',
   'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_SG1.xml.gz',
+  'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz',
 ];
 
 // --- UTILS ---
