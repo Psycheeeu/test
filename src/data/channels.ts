@@ -1364,6 +1364,83 @@ export const channels: Channel[] = [
     },
     programs: noScheduleProgram('Metro Channel', 'Documentary'),
   },
+  {
+    number: 86,
+    name: 'TapSILOG',
+    category: 'Local Entertainment',
+    logo: 'https://i.imgur.com/WaB2VXq.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/tapsilog/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('TapSILOG', 'Local Entertainment'),
+  },
+  {
+    number: 87,
+    name: 'MNET',
+    category: 'Foreign',
+    logo: 'https://www.jcom.co.jp/service/tv/channel/option_ch/images_v10/logo/logo_mnetHD.png',
+    epgId: 'Mnet_jp',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/mnet/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('MNET', 'Foreign'),
+  },
+  {
+    number: 88,
+    name: 'One',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/Xv8cQh0.png',
+    epgId: 'ONE.my',
+    epgSource: 'none',
+    stream: {
+      url: 'https://slive.mana2.my/OneHD/index.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '3dd653fc7aa1e3075b7f0233620df68f': '8573791fa55bff03a3094ff559fc1407' },
+      },
+    },
+    programs: noScheduleProgram('One', 'Foreign'),
+  },
+  {
+    number: 89,
+    name: 'Arirang',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/jgiNWxJ.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/arirang/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '13815d0fa026441ea7662b0c9de00bcf': '2d99a55743677c3879a068dd9c92f824' },
+      },
+    },
+    programs: noScheduleProgram('Arirang', 'Foreign'),
+  },
+  {
+    number: 90,
+    name: 'Asian Food Network',
+    category: 'Documentary',
+    logo: 'https://i.imgur.com/O5jBcL2.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/343bd328-606c-4bd6-8ed5-016f8911d0bd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '346b9f41e2933748c8861f82932e0110': 'cf0cffb637b81598a27bd6b0d90d65a8' },
+      },
+    },
+    programs: noScheduleProgram('Asian Food Network', 'Documentary'),
+  },
 ];
 
 export function getCurrentProgram(channel: Channel): Program {
