@@ -65,11 +65,11 @@ const musicProgram = (): Program[] => [{
   source: 'none',
 }];
 
-const starMProgram = (): Program[] => [{
-  title: 'StarM',
+const mchProgram = (): Program[] => [{
+  title: 'M-CH',
   startTime: '00:00',
   endTime: '23:59',
-  description: 'StarM programming block.',
+  description: 'M-CH programming block.',
   genre: 'Music',
   source: 'none',
 }];
@@ -983,7 +983,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/fx/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc3OTU0MDYwMSwiZXhwIjoxNzg3MzE2NjAxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODczMTY2MDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.G9RVqvRccbU9QyWSE8yu67IR2-2-yotmB1AyIa-Cheo',
+      url: 'https://nog-live1-ott.izzigo.tv/13/out/u/dash/FX-HD/default.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
