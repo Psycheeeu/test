@@ -1582,7 +1582,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://lightning-traceurban-samsungau.amagi.tv/playlist.m3u8,
+      url: 'https://lightning-traceurban-samsungau.amagi.tv/playlist.m3u8',
       type: 'hls',
     },
     programs: noScheduleProgram('Trace Urban', 'Music'),
