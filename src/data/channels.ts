@@ -1476,7 +1476,7 @@ export const channels: Channel[] = [
     name: 'NHK World Premium',
     category: 'Foreign',
     logo: 'https://i.imgur.com/h5omTCQ.png',
-    epgId: 'NHK World Premium.my',
+    epgId: 'nhkpremium.hk',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/db113a07-aa77-4178-b6bb-46adf7efa815/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
