@@ -1445,7 +1445,7 @@ export const channels: Channel[] = [
     number: 91,
     name: 'Cartoonito',
     category: 'Kids',
-    logo: 'https://i.imgur.com/rwdQBJm.png',
+    logo: 'https://i.imgur.com/kHhmOMp.png',
     epgId: '',
     epgSource: 'none',
     stream: {
@@ -1496,7 +1496,7 @@ export const channels: Channel[] = [
     epgId: 'jp34',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/no-tvg-id/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      url: 'https://converse.nathcreqtives.com/channels/bs10/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
       type: 'dash',
     },
     programs: noScheduleProgram('BS10', 'Foreign'),
@@ -1509,7 +1509,7 @@ export const channels: Channel[] = [
     epgId: 'bs08',
     epgSource: 'none',
     stream: {
-      url: 'http://akariko.netgenx.site/stream/jp/bs_10_premium/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/bs_10_premium/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Foreign'),
