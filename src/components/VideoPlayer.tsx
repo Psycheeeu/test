@@ -45,7 +45,7 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
-  function VideoPlayer({ channel, isTransitioning, settings, onError, onStatusChange, onStreamInfoChange }, ref) {
+  function VideoPlayer({ channel, isTransitioning, settings, onError, onStatusChange, onStreamInfoChange, onSettingsChange }, ref) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const hlsRef = useRef<Hls | null>(null);
     const shakaRef = useRef<any>(null);
@@ -672,7 +672,20 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
         startVideoPlayback(video);
       }
     }, [startVideoPlayback]);
-
+	
+    // Sync PiP state when closed externally
+    useEffect(() => {
+      const video = videoRef.current;
+      if (!video) return;
+      const handleLeavePiP = () => {
+        if (settingsRef.current.pip) {
+          onSettingsChange?.({ pip: false });
+        }
+      };
+      video.addEventListener('leavepictureinpicture', handleLeavePiP);
+      return () => video.removeEventListener('leavepictureinpicture', handleLeavePiP);
+    }, [onSettingsChange]);
+	
     // Apply playback-option changes without destroying/reloading the active stream.
     useEffect(() => {
       const video = videoRef.current;
