@@ -113,8 +113,13 @@ export default function ChannelSidebar({
   }, [filteredChannels, focusedChannelIndex, mode, onSelectChannel, searchOpen, visible]);
 
   useEffect(() => {
-    setFocusedChannelIndex((index) => Math.min(index, Math.max(0, filteredChannels.length - 1)));
-  }, [filteredChannels.length]);
+    if (visible && mode === 'channels') {
+      const activeIndex = filteredChannels.findIndex((ch) => ch.number === currentChannel.number);
+      if (activeIndex !== -1) {
+        setFocusedChannelIndex(activeIndex);
+      }
+    }
+  }, [visible, mode, filteredChannels, currentChannel.number]);
 
   useEffect(() => {
     if (visible && mode === 'channels') {
@@ -139,7 +144,7 @@ export default function ChannelSidebar({
           <div className="mb-9 flex items-start justify-between">
             <div className="flex items-center gap-5">
               <div>
-                <div className="text-[10px] font-black uppercase tracking-[0.45em] text-sky-300">Your Only Cable TV</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.45em] text-sky-300">PsycheFlix</div>
                 <h2 className="mt-1 text-[26px] font-black leading-none tracking-[-0.07em] text-white">PsycheFlix</h2>
                 <div className="mt-2 text-[12px] font-black uppercase tracking-[0.04em] text-white/32">Owned by Psycheee</div>
               </div>
@@ -233,9 +238,7 @@ export default function ChannelSidebar({
                 }`}
               >
                 <div className="flex min-w-0 items-center">
-                  <div
-                    className={`flex h-10 w-10 sm:h-[48px] sm:w-[48px] shrink-0 items-center justify-center rounded-[10px] sm:rounded-[12px] text-base sm:text-xl ${isFocused ? 'bg-black/10' : 'bg-[#252b2e]'}`}
-                  >
+                  <div className="flex h-10 w-10 sm:h-[48px] sm:w-[48px] shrink-0 items-center justify-center rounded-[10px] sm:rounded-[12px] bg-[#252525] text-base sm:text-xl">
                     {channel.logo.startsWith('http') || channel.logo.startsWith('/') ? (
                       <img src={channel.logo} alt={channel.name} className="max-h-6 sm:max-h-8 max-w-8 sm:max-w-10 object-contain" />
                     ) : (

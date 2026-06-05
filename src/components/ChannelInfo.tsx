@@ -36,7 +36,7 @@ export default function ChannelInfo({ channel, visible, streamInfo }: ChannelInf
         <div className="flex items-center justify-between mb-4">
           {/* Left: logo, name, quality */}
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-            <div className="flex h-11 w-11 sm:h-[60px] sm:w-[60px] items-center justify-center rounded-[12px] sm:rounded-[14px] bg-[#202124] text-xl sm:text-2xl shadow-xl shadow-black/35 shrink-0">
+            <div className="flex h-11 w-11 sm:h-[60px] sm:w-[60px] items-center justify-center rounded-[12px] sm:rounded-[14px] bg-[#252525] text-xl sm:text-2xl shadow-xl shadow-black/35 shrink-0">
               {channel.logo.startsWith('http') || channel.logo.startsWith('/') ? (
                 <img src={channel.logo} alt={channel.name} className="max-h-7 sm:max-h-10 max-w-9 sm:max-w-12 object-contain" />
               ) : (
