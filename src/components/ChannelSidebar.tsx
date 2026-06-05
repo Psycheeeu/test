@@ -27,6 +27,7 @@ export default function ChannelSidebar({
   const [searchQuery, setSearchQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const channelRowRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const initializedChannelFocus = useRef(false);
   const categoryOptions = useMemo(
     () => {
       const channelCategories = Array.from(
@@ -78,6 +79,7 @@ export default function ChannelSidebar({
       if (event.key === 'Enter') {
         event.preventDefault();
         const category = categoryOptions[focusedCategoryIndex];
+        initializedChannelFocus.current = false;
         setSelectedCategory(category);
         onModeChange('channels');
       }
@@ -113,16 +115,25 @@ export default function ChannelSidebar({
   }, [filteredChannels, focusedChannelIndex, mode, onSelectChannel, searchOpen, visible]);
 
   useEffect(() => {
-    if (visible && mode === 'channels') {
-      const activeIndex = filteredChannels.findIndex((ch) => ch.number === currentChannel.number);
-      if (activeIndex !== -1) {
-        setFocusedChannelIndex(activeIndex);
-        setTimeout(() => {
-          channelRowRefs.current[activeIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        }, 100);
-      }
+    if (!visible || mode !== 'channels') {
+      initializedChannelFocus.current = false;
+      return;
     }
-  }, [visible, mode, filteredChannels, currentChannel.number]);
+
+    if (initializedChannelFocus.current) return;
+
+    const activeIndex = filteredChannels.findIndex(
+      (ch) => ch.number === currentChannel.number
+    );
+
+    setFocusedChannelIndex(activeIndex >= 0 ? activeIndex : 0);
+
+    initializedChannelFocus.current = true;
+  }, [visible, mode, selectedCategory, currentChannel.number]);
+
+  useEffect(() => {
+    initializedChannelFocus.current = false;
+  }, [selectedCategory]);
 
   useEffect(() => {
     if (visible && mode === 'channels') {
