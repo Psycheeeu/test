@@ -324,6 +324,7 @@ export default function App() {
             settings={videoSettings}
             onStatusChange={setStreamStatus}
             onStreamInfoChange={setStreamInfo}
+            onSettingsChange={handleSettingsChange}
           />
         )}
       </div>
