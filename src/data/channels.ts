@@ -803,7 +803,7 @@ export const channels: Channel[] = [
     name: 'Hits',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/2iKSRM4.png',
-    epgId: '',
+    epgId: '454',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/hits-hd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -820,7 +820,7 @@ export const channels: Channel[] = [
     name: 'Hits Movies',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/FUaEcJe.png',
-    epgId: '',
+    epgId: '407',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/176700f3-7def-4a42-b216-bc1562e1e189/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -837,7 +837,7 @@ export const channels: Channel[] = [
     name: 'Hits Now',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/gAm7L6V.png',
-    epgId: '',
+    epgId: '452',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/e44d67c2-ce18-4ea5-9bce-96afb1fecbd5/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -1069,7 +1069,7 @@ export const channels: Channel[] = [
     name: 'AXN',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/fLWFUhy.png',
-    epgId: 'AXN.HD.my',
+    epgId: 'AXN',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/e3a61692-7bcd-4b1a-a8a2-6a7e0601aefe/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -1395,7 +1395,7 @@ export const channels: Channel[] = [
     name: 'One',
     category: 'Foreign',
     logo: 'https://i.imgur.com/Xv8cQh0.png',
-    epgId: 'ONE.my',
+    epgId: 'ONE',
     epgSource: 'none',
     stream: {
       url: 'https://slive.mana2.my/OneHD/index.mpd',
@@ -1429,7 +1429,7 @@ export const channels: Channel[] = [
     name: 'Asian Food Network',
     category: 'Documentary',
     logo: 'https://i.imgur.com/O5jBcL2.png',
-    epgId: '',
+    epgId: 'AFN',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/343bd328-606c-4bd6-8ed5-016f8911d0bd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
