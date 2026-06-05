@@ -7,6 +7,7 @@ export const EPG_SOURCE_URLS = [
   'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',
   'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml',
   'https://raw.githubusercontent.com/atone77721/AMZN_EPG/refs/heads/main/nowtv.xml',
+  'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/cignal_epg.xml',
   'https://www.open-epg.com/files/malaysia3.xml',
   'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_SG1.xml.gz',
