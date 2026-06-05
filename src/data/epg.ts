@@ -11,7 +11,7 @@ export const EPG_SOURCE_URLS = [
   'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml',
   'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/unifitv.xml',
   'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml',
-  'https://www.open-epg.com/files/singapore1.xml',
+  'https://www.open-epg.com/files/singapore1.xml.gz',
   'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_SG1.xml.gz',
 ];
