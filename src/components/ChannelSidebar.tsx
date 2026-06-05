@@ -117,6 +117,9 @@ export default function ChannelSidebar({
       const activeIndex = filteredChannels.findIndex((ch) => ch.number === currentChannel.number);
       if (activeIndex !== -1) {
         setFocusedChannelIndex(activeIndex);
+        setTimeout(() => {
+          channelRowRefs.current[activeIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }, 100);
       }
     }
   }, [visible, mode, filteredChannels, currentChannel.number]);

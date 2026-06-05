@@ -41,6 +41,7 @@ interface VideoPlayerProps {
   onError?: (msg: string) => void;
   onStatusChange?: (status: string) => void;
   onStreamInfoChange?: (info: StreamInfo) => void;
+  onSettingsChange?: (settings: Partial<VideoSettings>) => void;
 }
 
 const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
