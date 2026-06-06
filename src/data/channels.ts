@@ -1223,7 +1223,7 @@ export const channels: Channel[] = [
     name: 'Deutsche Welle',
     category: 'News',
     logo: 'https://i.imgur.com/UtR5MHV.png',
-    epgId: '',
+    epgId: 'DWEnglish.id',
     epgSource: 'none',
     stream: {
       url: 'https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8',
@@ -1279,7 +1279,7 @@ export const channels: Channel[] = [
     name: 'Warner TV',
     category: 'Entertainment',
     logo: 'https://i.imgur.com/Hy26eiy.png',
-    epgId: '',
+    epgId: '451',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/warner-tv/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -1519,7 +1519,7 @@ export const channels: Channel[] = [
     name: 'ZooMoo',
     category: 'Kids',
     logo: 'https://i.imgur.com/daHHNzj.png',
-    epgId: '',
+    epgId: 'ZooMoo.id',
     epgSource: 'none',
     stream: {
       url: 'https://amg01553-blueantmediaasi-zoomoonz-samsungnz-rdufn.amagi.tv/playlist/amg01553-blueantmediaasi-zoomoonz-samsungnz/playlist.m3u8',
