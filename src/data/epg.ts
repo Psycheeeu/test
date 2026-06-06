@@ -13,8 +13,7 @@ export const EPG_SOURCE_URLS = [
   'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml',
   'https://raw.githubusercontent.com/laleeroy/epg/c17822d42b8f995e0f9f802a03b4a290d1dd37a0/guide.xml',
   'https://raw.githubusercontent.com/IPTVCloud-app/EPG/07326114617efe3ac0c39f1228d6854fa355d699/sites/singtel.com/singtel.com.xml',
-  'https://www.open-epg.com/files/singapore1.xml',
-  'https://www.open-epg.com/files/singapore3.xml',
+  'https://iptv-epg.org/files/epg-pozosompgs.xml',
   'https://gsat.atone77721.workers.dev/gsat.xml',
   'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz',
 ];
