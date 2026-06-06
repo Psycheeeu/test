@@ -3,18 +3,17 @@ import { Channel, Program, getDummyEpgId } from './channels';
 
 export const EPG_SOURCE_URLS = [
   'https://akariko.netgenx.site/epg/kai-epg.xml',
+  'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz',
   'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',
   'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml',
   'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/cignal_epg.xml',
-  'https://raw.githubusercontent.com/atone77721/AMZN_EPG/refs/heads/main/nowtv.xml',
   'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml',
   'https://raw.githubusercontent.com/dbghelp/StarHub-TV-EPG/refs/heads/main/starhub.xml',
   'https://raw.githubusercontent.com/dbghelp/Singtel-TV-EPG/refs/heads/main/singtel.xml',
   'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml',
   'https://raw.githubusercontent.com/laleeroy/epg/c17822d42b8f995e0f9f802a03b4a290d1dd37a0/guide.xml',
   'https://gsat.atone77721.workers.dev/gsat.xml',
-  'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz',
 ];
 
 // --- UTILS ---
