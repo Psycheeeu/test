@@ -1035,22 +1035,6 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Jeepney TV', 'Local Entertainment'),
   },
   {
-    number: 64,
-    name: 'Kix',
-    category: 'Foreign',
-    logo: 'https://i.imgur.com/rwdQBJm.png',
-    epgId: 'kix_hd1',
-    epgSource: 'none',
-    stream: {
-      url: 'https://psycheflixcignal.csx067.workers.dev/kix/manifest.mpd',
-      type: 'dash',
-      drm: {
-        scheme: 'clearkey',
-        clearkeys: { 'c9d4b7a18e2f4d6c9a103f5b7e1c2d88': '7f3139092bf87d8aa51ee40e6294d376' },
-      },
-    programs: noScheduleProgram('Kix', 'Foreign'),
-  },
-  {
     number: 66,
     name: 'AXN',
     category: 'Entertainment',
