@@ -1035,6 +1035,23 @@ export const channels: Channel[] = [
     programs: noScheduleProgram('Jeepney TV', 'Local Entertainment'),
   },
   {
+    number: 65,
+    name: 'Thrill',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/LCX2guc.png',
+    epgId: 'https://psycheflixcignal.csx067.workers.dev/thrill/manifest.mpd',
+    epgSource: 'none',
+    stream: {
+      url: '',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '928114ffb2394d14b5585258f70ed183': 'a82edc340bc73447bac16cdfed0a4c62' },
+      },
+    },
+    programs: noScheduleProgram('Thrill', 'Foreign'),
+  },
+  {
     number: 66,
     name: 'AXN',
     category: 'Entertainment',
