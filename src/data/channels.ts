@@ -1055,7 +1055,7 @@ export const channels: Channel[] = [
     name: 'Thrill',
     category: 'Foreign',
     logo: 'https://i.imgur.com/LCX2guc.png',
-    epgId: 'cg_thrill_sd',
+    epgId: 'AXN',
     epgSource: 'none',
     stream: {
       url: 'https://psycheflixcignal.csx067.workers.dev/thrill/manifest.mpd',
