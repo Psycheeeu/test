@@ -619,7 +619,7 @@ export const channels: Channel[] = [
       type: 'dash',
       drm: {
         scheme: 'clearkey',
-        clearkeys: { 'd273c085f2ab4a248e7bfc375229007d': "7932354c3a84f7fc1b80efa6bcea0615' },
+        clearkeys: { 'd273c085f2ab4a248e7bfc375229007d': '7932354c3a84f7fc1b80efa6bcea0615' },
       },
     },
     programs: noScheduleProgram('BuKO', 'Local Entertainment'),
