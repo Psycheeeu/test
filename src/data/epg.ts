@@ -13,6 +13,7 @@ export const EPG_SOURCES: { tag: string; url: string }[] = [
   { tag: 'astromy', url: 'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml' },
   { tag: 'starhubsg', url: 'https://raw.githubusercontent.com/dbghelp/StarHub-TV-EPG/refs/heads/main/starhub.xml' },
   { tag: 'singtelsg', url: 'https://raw.githubusercontent.com/dbghelp/Singtel-TV-EPG/refs/heads/main/singtel.xml' },
+  { tag: 'mewatchsg', url: 'https://raw.githubusercontent.com/dbghelp/mewatch-EPG/refs/heads/main/mewatch.xml' },
   { tag: 'dummy', url: 'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz' },
   { tag: 'ph1', url: 'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz' },
   { tag: 'ph2', url: 'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz' },
