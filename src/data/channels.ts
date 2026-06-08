@@ -1501,7 +1501,7 @@ export const channels: Channel[] = [
     epgId: 'bs01@jp',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/wowow_prime/stream-output.m3u8?mode=hls',
+      url: 'https://akariko.netgenx.site/stream/jp/nhk_bs4k/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
     programs: noScheduleProgram('NHK BSP4K', 'Foreign'),
@@ -1518,6 +1518,91 @@ export const channels: Channel[] = [
       type: 'hls',
     },
     programs: noScheduleProgram('MTV Taiwan', 'Music'),
+  },
+  {
+    number: 96,
+    name: 'NBA TV Philippines',
+    category: 'Sports',
+    logo: 'https://i.imgur.com/Eic5slm.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/nba-tv-philippines/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'd1f8a0c97b3d4e529a6f2c4b8d7e1f90': '58ab331d14b66bf31aca4284e0a3e536' },
+      },
+    },
+    programs: noScheduleProgram('NBA TV Philippines', 'Foreign'),
+  },
+  {
+    number: 97,
+    name: 'NBA TV',
+    category: 'Sports',
+    logo: 'https://i.imgur.com/OGXzvsp.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/2jbycgm3g3/out/v1/066dd9325648468c9ecdc8b272370931/cenc.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '84077d18bcf234a42de3745be106a87f': 'aee3069c062ec8ee6bfdd32985f287ef' },
+      },
+    },
+    programs: noScheduleProgram('NBA TV', 'Sports'),
+  },
+  {
+    number: 98,
+    name: 'AXN',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/fLWFUhy.png',
+    epgId: 'AXN@astromy',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/e3a61692-7bcd-4b1a-a8a2-6a7e0601aefe/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'c24a7811d9ab46b48b746a0e7e269210': 'c321afe1689b07d5b7e55bd025c483ce' },
+      },
+    },
+    programs: noScheduleProgram('AXN', 'Entertainment'),
+  },
+  {
+    number: 99,
+    name: 'FX',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/gbvwqxl.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://nog-live1-ott.izzigo.tv/13/out/u/dash/FX-HD/default.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '8ce1ec3e2402a170cbe13b79ce9bb30f': '82fdcfde32cc02673547e58b50e2b5ae' },
+      },
+    },
+    programs: noScheduleProgram('FX', 'Entertainment'),
+  },
+  {
+    number: 100,
+    name: 'Star Channel',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/WZsIkUf.png',
+    epgId: '',
+    epgSource: 'none',
+    stream: {
+      url: 'https://nog-live1-ott.izzigo.tv/12/out/u/dash/STAR-CHANNEL-HD/default.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'b482bd74b9fccb810bf94a3b3732c0f9': '9207af2617ac4df3ee6860719a53eb8b' },
+      },
+    },
+    programs: noScheduleProgram('Star Channel', 'Entertainment'),
   },
 ];
 
