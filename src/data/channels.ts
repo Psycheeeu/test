@@ -1184,7 +1184,7 @@ export const channels: Channel[] = [
     epgId: 'cs06',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/music_japan_tv/stream-output.m3u8?mode=hls',
+      url: 'https://converse.nathcreqtives.com/channels/cs06/playlist.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
       type: 'hls',
     },
     programs: noScheduleProgram('Music Japan TV', 'Music'),
