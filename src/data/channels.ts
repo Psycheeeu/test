@@ -1337,16 +1337,15 @@ export const channels: Channel[] = [
   {
     number: 83,
     name: 'Cartoon Network SD',
-    category: 'Animation',
-    logo: 'https://i.imgur.com/48Qn6qN.png',
-    epgId: '6422@singtelsg',
+    category: 'Kids',
+    logo: 'https://i.imgur.com/kHhmOMp.png',
+    epgId: '',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/converge-cartoon-network/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
       type: 'dash',
-      },
     },
-    programs: noScheduleProgram('Cartoon Network SD.', 'Animation'),
+    programs: noScheduleProgram('Cartoon Network SD', 'Animation'),
   },
   {
     number: 84,
