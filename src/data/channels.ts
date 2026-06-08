@@ -1446,6 +1446,79 @@ export const channels: Channel[] = [
     },
     programs: noScheduleProgram('WOWOW Prime', 'Foreign'),
   },
+  {
+    number: 91,
+    name: 'NHK World',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/WX0fL1C.png',
+    epgId: '812',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/nhk-japan/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '3d6e9d4de7d7449aadd846b7a684e564': '0800fff80980f47f7ac6bc60b361b0cf' },
+      },
+    },
+    programs: noScheduleProgram('NHK World', 'Foreign'),
+  },
+  {
+    number: 92,
+    name: 'NHK World Premium',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/h5omTCQ.png',
+    epgId: '811',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/db113a07-aa77-4178-b6bb-46adf7efa815/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '98817b144bcf19fd0ddca7fe54cee110': '44b423a77dd34ace162db35cbb0fb6a3' },
+      },
+    },
+    programs: noScheduleProgram('NHK World Premium', 'Foreign'),
+  },
+  {
+    number: 93,
+    name: 'NHK BS',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/Y0DcwsN.png',
+    epgId: 'bs11@jp',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/nhk-bs/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+    },
+    programs: noScheduleProgram('NHK BS', 'Foreign'),
+  },
+  {
+    number: 94,
+    name: 'NHK BSP4K',
+    category: 'Foreign',
+    logo: 'https://i.imgur.com/ulbxqQ1.png',
+    epgId: 'bs01@jp',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_prime/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('NHK BSP4K', 'Foreign'),
+  },
+  {
+    number: 95,
+    name: 'MTV Taiwan',
+    category: 'Music',
+    logo: 'https://i.imgur.com/XbUy60L.png',
+    epgId: 'MTV@tw',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/space_shower_tv/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Space Shower TV', 'Music'),
+  },
 ];
 
 export function getCurrentProgram(channel: Channel): Program {
