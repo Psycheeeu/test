@@ -1497,7 +1497,7 @@ export const channels: Channel[] = [
     number: 94,
     name: 'NHK BSP4K',
     category: 'Foreign',
-    logo: 'https://i.imgur.com/ulbxqQ1.png',
+    logo: 'https://i.imgur.com/GJxx0Xq.png',
     epgId: 'bs01@jp',
     epgSource: 'none',
     stream: {
@@ -1514,10 +1514,10 @@ export const channels: Channel[] = [
     epgId: 'MTV@tw',
     epgSource: 'none',
     stream: {
-      url: 'https://akariko.netgenx.site/stream/jp/space_shower_tv/stream-output.m3u8?mode=hls',
+      url: 'https://psycheee.csx067.workers.dev/mtv_tw/psycheflix/playlist.m3u8',
       type: 'hls',
     },
-    programs: noScheduleProgram('Space Shower TV', 'Music'),
+    programs: noScheduleProgram('MTV Taiwan', 'Music'),
   },
 ];
 
