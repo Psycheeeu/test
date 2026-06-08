@@ -612,14 +612,14 @@ export const channels: Channel[] = [
     name: 'BuKO',
     category: 'Local Entertainment',
     logo: 'https://i.imgur.com/Wv0K5Yc.png',
-    epgId: 'Tagalized.Movie.Channel.ph',
+    epgId: 'buko@cignaltv',
     epgSource: 'none',
     stream: {
-      url: 'https://psycheflixcignal.csx067.workers.dev/tmc/manifest.mpd',
+      url: 'https://psycheflixcignal.csx067.workers.dev/buko/manifest.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
-        clearkeys: { '96701d297d1241e492d41c397631d857': 'ca2931211c1a261f082a3a2c4fd9f91b' },
+        clearkeys: { 'd273c085f2ab4a248e7bfc375229007d": "7932354c3a84f7fc1b80efa6bcea0615' },
       },
     },
     programs: noScheduleProgram('BuKO', 'Local Entertainment'),
@@ -668,7 +668,7 @@ export const channels: Channel[] = [
     name: 'Kapatid Channel',
     category: 'Local Entertainment',
     logo: 'https://i.imgur.com/BUVWBm2.png',
-    epgId: '',
+    epgId: 'kapatid_hd@cignaltv',
     epgSource: 'none',
     stream: {
       url: 'https://psycheflixcignal.csx067.workers.dev/kapatidchannel/manifest.mpd',
@@ -1308,11 +1308,11 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'hhttps://dash2.antik.sk/stream/hisi_disney_channel/playlist_cbcs.mpd',
+      url: 'https://cache07.zapitv.com/live/eds_c2/DISNEYJR/dash_live_ez/DISNEYJR.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
-        clearkeys: { '11223344556677889900112233445566': '4b80724d0ef86bcb2c21f7999d67739d' },
+        clearkeys: { '44875398e74743caabb7278f2b63433f': 'a1e2ad6d895feb2a609683324dd0b93c' },
       },
     },
     programs: noScheduleProgram('Disney Channel', 'Animation'),
@@ -1325,7 +1325,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://dash2.antik.sk/stream/hisi_disney_jr/playlist_cbcs.mpd"',
+      url: 'https://dash3.antik.sk/stream/hisi_disney_jr/playlist_cbcs.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
@@ -1337,9 +1337,9 @@ export const channels: Channel[] = [
   {
     number: 83,
     name: 'Cartoon Network SD',
-    category: 'Kids',
-    logo: 'https://i.imgur.com/kHhmOMp.png',
-    epgId: '',
+    category: 'Animation',
+    logo: 'https://i.imgur.com/Offhcm1.png',
+    epgId: '316@starhubsg',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/converge-cartoon-network/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -1352,7 +1352,7 @@ export const channels: Channel[] = [
     name: 'Cartoon Network HD',
     category: 'Animation',
     logo: 'https://i.imgur.com/gVbiOgV.png',
-    epgId: '6422@singtelsg',
+    epgId: 'cartoonnetworkhd@cignaltv',
     epgSource: 'none',
     stream: {
       url: 'https://converse.nathcreqtives.com/channels/cartoon-net-hd/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
@@ -1376,6 +1376,75 @@ export const channels: Channel[] = [
       type: 'dash',
     },
     programs: noScheduleProgram('Cartoonito', 'Kids'),
+  },
+  {
+    number: 86,
+    name: 'Warner TV',
+    category: 'Entertainment',
+    logo: 'https://i.imgur.com/Hy26eiy.png',
+    epgId: '451',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/warner-tv/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '4503cf86bca3494ab95a77ed913619a0': 'afc9c8f627fb3fb255dee8e3b0fe1d71' },
+      },
+    },
+    programs: noScheduleProgram('Warner TV', 'Entertainment'),
+  },
+  {
+    number: 87,
+    name: 'WOWOW Cinema',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/34/wowow-cinema_logo.jpg',
+    epgId: 'bs07',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_cinema/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Cinema', 'Foreign'),
+  },
+  {
+    number: 88,
+    name: 'WOWOW Live',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/33/wowow-live_logo.jpg',
+    epgId: 'jp31',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_live/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Live', 'Foreign'),
+  },
+  {
+    number: 89,
+    name: 'WOWOW Plus',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/4/cinefilwowow_logo.jpg',
+    epgId: 'jp33',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_plus/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Plus', 'Foreign'),
+  },
+  {
+    number: 90,
+    name: 'WOWOW Prime',
+    category: 'Foreign',
+    logo: 'https://www.starcat.co.jp/ch/upload/channel/32/wowow-prime_logo.jpg',
+    epgId: 'bs12',
+    epgSource: 'none',
+    stream: {
+      url: 'https://akariko.netgenx.site/stream/jp/wowow_prime/stream-output.m3u8?mode=hls',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('WOWOW Prime', 'Foreign'),
   },
 ];
 
