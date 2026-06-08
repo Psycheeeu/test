@@ -1,11 +1,13 @@
 import { useMemo } from 'react';
 import { Channel, Program, getCurrentProgram, getProgress } from '../data/channels';
 import { StreamInfo } from '../data/videoSettings';
+
 interface ChannelInfoProps {
   channel: Channel;
   visible: boolean;
   streamInfo?: StreamInfo;
 }
+
 function getQualityBadge(streamInfo?: StreamInfo) {
   const height = Number(streamInfo?.resolution?.split('x')[1]);
   if (!Number.isNaN(height) && height > 0) {
@@ -16,6 +18,7 @@ function getQualityBadge(streamInfo?: StreamInfo) {
   }
   return null;
 }
+
 const NO_DATA_PROGRAM: Program = {
   title: '—',
   startTime: '--:--',
@@ -23,6 +26,7 @@ const NO_DATA_PROGRAM: Program = {
   description: '',
   genre: '',
 };
+
 /**
  * Resolves the current, next, and later programs accurately.
  *
@@ -36,23 +40,28 @@ const NO_DATA_PROGRAM: Program = {
 function resolveNowNextLater(channel: Channel) {
   const programs = channel.programs;
   const currentProgram = getCurrentProgram(channel);
+
   if (!programs || programs.length === 0) {
     return { now: currentProgram, next: NO_DATA_PROGRAM, later: NO_DATA_PROGRAM };
   }
+
   const now = Date.now();
   const hasTimestamps = programs.some(p => typeof p.startMs === 'number' && typeof p.endMs === 'number');
+
   if (hasTimestamps) {
     // Find current program index by matching the exact startMs + endMs returned
     // by getCurrentProgram — this avoids title-collision bugs.
     let currentIndex = programs.findIndex(
       p => p.startMs === currentProgram.startMs && p.endMs === currentProgram.endMs && p.title === currentProgram.title
     );
+
     // Fallback: if exact match fails, find the first program that is currently airing
     if (currentIndex < 0) {
       currentIndex = programs.findIndex(
         p => typeof p.startMs === 'number' && typeof p.endMs === 'number' && now >= p.startMs && now < p.endMs
       );
     }
+
     if (currentIndex < 0) {
       // No airing program found — pick the next upcoming one
       const nextUpIndex = programs.findIndex(p => typeof p.startMs === 'number' && p.startMs > now);
@@ -65,16 +74,19 @@ function resolveNowNextLater(channel: Channel) {
       }
       return { now: currentProgram, next: NO_DATA_PROGRAM, later: NO_DATA_PROGRAM };
     }
+
     // Collect future programs (everything after the current index that hasn't ended)
     const upcoming = programs.slice(currentIndex + 1).filter(
       p => typeof p.endMs === 'number' ? p.endMs > now : true
     );
+
     return {
       now: currentProgram,
       next: upcoming[0] ?? NO_DATA_PROGRAM,
       later: upcoming[1] ?? NO_DATA_PROGRAM,
     };
   }
+
   // Static / no-timestamp (dummy) programs — wrap around so the schedule
   // repeats continuously (e.g. the Welcome channel's single-program loop).
   let currentIndex = programs.indexOf(currentProgram);
@@ -84,26 +96,32 @@ function resolveNowNextLater(channel: Channel) {
     );
   }
   if (currentIndex < 0) currentIndex = 0;
+
   const next = programs[(currentIndex + 1) % programs.length];
   const later = programs[(currentIndex + 2) % programs.length];
+
   return {
     now: currentProgram,
     next,
     later,
   };
 }
+
 export default function ChannelInfo({ channel, visible, streamInfo }: ChannelInfoProps) {
   if (!visible) return null;
+
   const { now: program, next: nextProgram, later: laterProgram } = useMemo(
     () => resolveNowNextLater(channel),
     [channel]
   );
   const progress = getProgress(channel);
   const qualityBadge = getQualityBadge(streamInfo);
+
   return (
     <div className="absolute bottom-0 left-0 right-0 z-20 info-slide sm:p-0">
       <div className="relative h-auto sm:h-[172px] overflow-hidden bg-gradient-to-t from-black via-black/95 to-[#111214]/92 px-4 sm:px-[43px] pb-6 sm:pb-8 pt-4 sm:pt-5 shadow-[0_-28px_70px_rgba(0,0,0,0.92)] backdrop-blur-sm">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/18 to-transparent" />
+
         {/* Header Row: Channel Info (Left) + Live/Time (Right) */}
         <div className="flex items-center justify-between mb-4">
           {/* Left: logo, name, quality */}
@@ -118,17 +136,15 @@ export default function ChannelInfo({ channel, visible, streamInfo }: ChannelInf
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
                 <h2 className="truncate text-lg sm:text-[20px] font-black uppercase tracking-[-0.03em] text-white">{channel.name}</h2>
-                {qualityBadge && (
-                  <span className="rounded-md bg-white px-1.5 py-0.5 text-[9px] sm:text-[10px] font-black text-black shrink-0">{qualityBadge}</span>
-                )}
               </div>
             </div>
           </div>
-          {/* Right: Live badge and Time */}
+
+          {/* Right: Quality badge and Time */}
           <div className="flex items-center gap-2 sm:gap-5 shrink-0">
-            {channel.stream && (
+            {qualityBadge && (
               <div className="rounded-full bg-white/15 px-2.5 py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-wide text-white/90">
-                Live
+                {qualityBadge}
               </div>
             )}
             <div className="whitespace-nowrap font-mono text-lg sm:text-[22px] font-semibold text-white">
@@ -136,6 +152,7 @@ export default function ChannelInfo({ channel, visible, streamInfo }: ChannelInf
             </div>
           </div>
         </div>
+
         {/* Grid: Now | Next | Later */}
         <div className="grid grid-cols-1 sm:grid-cols-[minmax(200px,1fr)_1px_minmax(150px,0.8fr)_1px_minmax(150px,0.8fr)] gap-4 sm:gap-5">
           {/* Now Section */}
@@ -151,14 +168,18 @@ export default function ChannelInfo({ channel, visible, streamInfo }: ChannelInf
               </span>
             </div>
           </section>
+
           <div className="hidden sm:block h-full w-px bg-white/15" />
+
           {/* Next Section */}
           <section className="min-w-0">
             <div className="mb-1 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.22em] text-white/30">Next</div>
             <h3 className="truncate text-sm sm:text-[13px] font-semibold text-white/90">{nextProgram.title}</h3>
             <p className="mt-1 font-mono text-[9px] text-white/34">{nextProgram.startTime === '--:--' ? '--:--' : nextProgram.startTime}</p>
           </section>
+
           <div className="hidden sm:block h-full w-px bg-white/15" />
+
           {/* Later Section */}
           <section className="min-w-0">
             <div className="mb-1 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.22em] text-white/30">Later</div>
