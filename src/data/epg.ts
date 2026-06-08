@@ -1,22 +1,43 @@
 import { ungzip } from 'pako';
 import { Channel, Program, getDummyEpgId } from './channels';
 
-export const EPG_SOURCE_URLS = [
-  'https://akariko.netgenx.site/epg/kai-epg.xml',
-  'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz',
-  'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz',
-  'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz',
-  'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml',
-  'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/cignal_epg.xml',
-  'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml',
-  'https://raw.githubusercontent.com/dbghelp/StarHub-TV-EPG/refs/heads/main/starhub.xml',
-  'https://raw.githubusercontent.com/dbghelp/Singtel-TV-EPG/refs/heads/main/singtel.xml',
-  'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml',
-  'https://raw.githubusercontent.com/laleeroy/epg/c17822d42b8f995e0f9f802a03b4a290d1dd37a0/guide.xml',
-  'https://gsat.atone77721.workers.dev/gsat.xml',
+// EPG sources with short tags for targeting.
+// Channels use 'epgId@tag' to pull EPG from only that source.
+// e.g. 'cg_animax_sd_new@epgs1' → only searches the cignal_epg.xml source.
+// If no '@tag' is specified, all sources are searched (original behaviour).
+
+export const EPG_SOURCES: { tag: string; url: string }[] = [
+  { tag: 'jp', url: 'https://akariko.netgenx.site/epg/kai-epg.xml' },
+  { tag: 'cignaltv', url: 'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/cignal_epg.xml' },
+  { tag: 'ctc', url: 'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml' },
+  { tag: 'astromy', url: 'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml' },
+  { tag: 'starhubsg', url: 'https://raw.githubusercontent.com/dbghelp/StarHub-TV-EPG/refs/heads/main/starhub.xml' },
+  { tag: 'singtelsg', url: 'https://raw.githubusercontent.com/dbghelp/Singtel-TV-EPG/refs/heads/main/singtel.xml' },
+  { tag: 'dummy', url: 'https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz' },
+  { tag: 'ph1', url: 'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz' },
+  { tag: 'ph2', url: 'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz' },
+  { tag: 'id', url: 'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml' },
+  { tag: 'laleeroy', url: 'https://raw.githubusercontent.com/laleeroy/epg/c17822d42b8f995e0f9f802a03b4a290d1dd37a0/guide.xml' },
+  { tag: 'gsat', url: 'https://gsat.atone77721.workers.dev/gsat.xml' },
 ];
 
+// Keep a flat URL list for backwards compat
+export const EPG_SOURCE_URLS = EPG_SOURCES.map(s => s.url);
+
 // --- UTILS ---
+
+/**
+ * Parses an epgId that may contain a source tag.
+ *   'cg_animax_sd_new@cignal' → { rawId: 'cg_animax_sd_new', sourceTag: 'cignal' }
+ *   'cs18'                    → { rawId: 'cs18',              sourceTag: null }
+ */
+function parseEpgId(epgId: string): { rawId: string; sourceTag: string | null } {
+  const atIdx = epgId.lastIndexOf('@');
+  if (atIdx > 0) {
+    return { rawId: epgId.slice(0, atIdx), sourceTag: epgId.slice(atIdx + 1) };
+  }
+  return { rawId: epgId, sourceTag: null };
+}
 
 function parseXmltvDate(value: string) {
   const match = value.match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(?:\s*([+-]\d{4}))?/);
@@ -86,11 +107,11 @@ async function fetchOneEpgXml(url: string) {
 
 /**
  * Parses a single XML file and maps programmes directly to the user's requested EPG IDs.
- * This prevents the "ID Mismatch" bug by ensuring the Map key is always the actual channel.epgId.
+ * normRequestedMap keys are normalized rawIds (without @tag), values are the full original epgId.
  */
-function parseXmlToUserMap(xml: Document, requestedIds: Set<string>, normRequestedMap: Map<string, string>): Map<string, Program[]> {
+function parseXmlToUserMap(xml: Document, normRequestedMap: Map<string, string>): Map<string, Program[]> {
   const userProgramMap = new Map<string, Program[]>();
-  const xmlToUserMapping = new Map<string, string>(); // Maps XML ID -> User's EPG ID
+  const xmlToUserMapping = new Map<string, string>(); // Maps XML ID -> User's full epgId
 
   // 1. Create a mapping table by looking at <channel> tags
   const channelNodes = xml.getElementsByTagName('channel');
@@ -167,30 +188,54 @@ function parseXmlToUserMap(xml: Document, requestedIds: Set<string>, normRequest
 
 export async function loadEpgForChannels(lineup: Channel[]) {
   try {
-    const epgResults = await Promise.all(EPG_SOURCE_URLS.map(fetchOneEpgXml));
-    const validEpgs = epgResults.filter((e): e is { url: string; xml: string } => e !== null);
+    // Fetch all EPG sources in parallel, keeping track of the tag for each
+    const epgResults = await Promise.all(
+      EPG_SOURCES.map(async (source) => {
+        const result = await fetchOneEpgXml(source.url);
+        return result ? { tag: source.tag, url: result.url, xml: result.xml } : null;
+      })
+    );
+    const validEpgs = epgResults.filter((e): e is { tag: string; url: string; xml: string } => e !== null);
 
     if (validEpgs.length === 0) throw new Error('No EPG sources loaded');
 
-    // Prepare mapping helpers
-    const requestedIds = new Set<string>();
-    const normRequestedMap = new Map<string, string>(); // normalized -> actual epgId
+    // Build a set of tags that are actually available
+    const availableTags = new Set(validEpgs.map(e => e.tag));
 
-    lineup.forEach(ch => {
+    // Group channels by which source tag they target (null = all sources)
+    // For each source, build a normRequestedMap containing only the channels that want data from it.
+
+    // First, parse all channel epgIds to understand targeting
+    const channelTargets = new Map<string, { rawId: string; sourceTag: string | null }>();
+    for (const ch of lineup) {
       if (ch.epgId && ch.epgId !== 'none') {
-        requestedIds.add(ch.epgId);
-        normRequestedMap.set(normalizeId(ch.epgId), ch.epgId);
+        channelTargets.set(ch.epgId, parseEpgId(ch.epgId));
       }
-    });
+    }
 
-    // The Master Map: Key is ALWAYS the actual ch.epgId
+    // The Master Map: Key is ALWAYS the full ch.epgId (with @tag if present)
     const masterProgramMap = new Map<string, Program[]>();
 
     for (const epg of validEpgs) {
       const xmlDoc = new DOMParser().parseFromString(epg.xml, 'application/xml');
       if (xmlDoc.getElementsByTagName('parsererror').length > 0) continue;
 
-      const sourceMap = parseXmlToUserMap(xmlDoc, requestedIds, normRequestedMap);
+      // Build normRequestedMap for THIS source only:
+      // Include channels that either target this specific tag, or have no tag (search all)
+      const normRequestedMap = new Map<string, string>();
+
+      for (const [fullEpgId, { rawId, sourceTag }] of channelTargets) {
+        // Skip if channel targets a specific different source
+        if (sourceTag !== null && sourceTag !== epg.tag) continue;
+        // Skip if channel targets a source that doesn't exist (typo protection)
+        if (sourceTag !== null && !availableTags.has(sourceTag)) continue;
+
+        normRequestedMap.set(normalizeId(rawId), fullEpgId);
+      }
+
+      if (normRequestedMap.size === 0) continue;
+
+      const sourceMap = parseXmlToUserMap(xmlDoc, normRequestedMap);
       
       // Merge sourceMap into masterProgramMap
       sourceMap.forEach((programs, targetId) => {
@@ -202,16 +247,28 @@ export async function loadEpgForChannels(lineup: Channel[]) {
     // Sort all programs once after merging all sources
     masterProgramMap.forEach(progs => progs.sort((a, b) => (a.startMs ?? 0) - (b.startMs ?? 0)));
 
+    // Deduplicate: remove programmes with identical title + startMs + endMs
+    masterProgramMap.forEach((progs, key) => {
+      const seen = new Set<string>();
+      const deduped = progs.filter(p => {
+        const fingerprint = `${p.title}|${p.startMs}|${p.endMs}`;
+        if (seen.has(fingerprint)) return false;
+        seen.add(fingerprint);
+        return true;
+      });
+      masterProgramMap.set(key, deduped);
+    });
+
     // Final mapping to lineup
-    return lineup.map((channel) => {
+    return lineup.map((channel): Channel => {
       const epgId = channel.epgId;
       const hasEpg = epgId && masterProgramMap.has(epgId);
       const programs = hasEpg ? (masterProgramMap.get(epgId) ?? []) : (epgId === 'none' ? channel.programs : makeNoScheduleProgram(channel));
 
       return {
         ...channel,
-        epgId, // Keep configured ID
-        epgSource: hasEpg ? 'epg' : 'none',
+        epgId, // Keep configured ID (with @tag)
+        epgSource: hasEpg ? 'epg' as const : 'none' as const,
         programs,
         epgIdFound: !!hasEpg,
         fallbackEpgId: hasEpg ? undefined : getDummyEpgId(channel),
@@ -220,7 +277,7 @@ export async function loadEpgForChannels(lineup: Channel[]) {
 
   } catch (error) {
     console.warn('EPG loading failed:', error);
-    return lineup.map(ch => ({
+    return lineup.map((ch): Channel => ({
       ...ch,
       epgSource: 'none' as const,
       programs: ch.epgId === 'none' ? ch.programs : makeNoScheduleProgram(ch),
