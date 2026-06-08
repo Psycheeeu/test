@@ -17,7 +17,7 @@ export const EPG_SOURCES: { tag: string; url: string }[] = [
   { tag: 'ph1', url: 'https://epgshare01.online/epgshare01/epg_ripper_PH1.xml.gz' },
   { tag: 'ph2', url: 'https://epgshare01.online/epgshare01/epg_ripper_PH2.xml.gz' },
   { tag: 'id', url: 'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml' },
-  { tag: 'laleeroy', url: 'https://raw.githubusercontent.com/laleeroy/epg/c17822d42b8f995e0f9f802a03b4a290d1dd37a0/guide.xml' },
+  { tag: 'random', url: 'https://raw.githubusercontent.com/laleeroy/epg/c17822d42b8f995e0f9f802a03b4a290d1dd37a0/guide.xml' },
   { tag: 'gsat', url: 'https://gsat.atone77721.workers.dev/gsat.xml' },
 ];
 
