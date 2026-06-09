@@ -369,23 +369,6 @@ export const channels: Channel[] = [
   },
   {
     number: 21,
-    name: 'CNA',
-    category: 'News',
-    logo: 'https://i.imgur.com/jNEGuBN.png',
-    epgId: 'CNA@astromy',
-    epgSource: 'none',
-    stream: {
-      url: 'https://converse.nathcreqtives.com/channels/76b295fa-45b2-48ad-a9cf-e3b2fb32b432/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
-      type: 'dash',
-      drm: {
-        scheme: 'clearkey',
-        clearkeys: { 'f812aeae6be5b924a8181b512d5d7910': '44275884ee394d05081fde395ff6e415' },
-      },
-    },
-    programs: noScheduleProgram('CNA', 'News'),
-  },
-  {
-    number: 21,
     name: 'One News',
     category: 'News',
     logo: 'https://i.imgur.com/bmP06bk.png',
@@ -626,19 +609,6 @@ export const channels: Channel[] = [
   },
   {
     number: 37,
-    name: 'Russia Today',
-    category: 'News',
-    logo: 'https://i.imgur.com/fJpnzad.png',
-    epgId: 'Russia.Today..sg',
-    epgSource: 'none',
-    stream: {
-      url: 'https://1a-1791.com/live/hr6yv36f/slot-4/mxtm-wdfe_360p/chunklist_DVR.m3u8',
-      type: 'hls',
-    },
-    programs: noScheduleProgram('Russia Today', 'News'),
-  },
-  {
-    number: 38,
     name: 'Deutsche Welle',
     category: 'News',
     logo: 'https://i.imgur.com/UtR5MHV.png',
@@ -649,6 +619,23 @@ export const channels: Channel[] = [
       type: 'hls',
     },
     programs: noScheduleProgram('Deutsche Welle', 'News'),
+  },
+  {
+    number: 38,
+    name: 'CNA',
+    category: 'News',
+    logo: 'https://i.imgur.com/jNEGuBN.png',
+    epgId: 'CNA@astromy',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/76b295fa-45b2-48ad-a9cf-e3b2fb32b432/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MDU3NTA1MywiZXhwIjoxNzg4MzUxMDUzLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODgzNTEwNTMsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVlZWZsaXh1dXUudmVyY2VsLmFwcCIsImh0dHBzOi8vcHN5Y2hlZmxpeC5wYWdlcy5kZXYiXX0.ngv2-3w4tcSIZR4J72tEsTZGQYt4iWRdVfFo3sQZa84',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'f812aeae6be5b924a8181b512d5d7910': '44275884ee394d05081fde395ff6e415' },
+      },
+    },
+    programs: noScheduleProgram('CNA', 'News'),
   },
   {
     number: 39,
@@ -1603,6 +1590,19 @@ export const channels: Channel[] = [
       },
     },
     programs: noScheduleProgram('Star Channel', 'Entertainment'),
+  },
+  {
+    number: 101,
+    name: 'Russia Today',
+    category: 'News',
+    logo: 'https://i.imgur.com/fJpnzad.png',
+    epgId: 'Russia.Today..sg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://1a-1791.com/live/hr6yv36f/slot-4/mxtm-wdfe_360p/chunklist_DVR.m3u8',
+      type: 'hls',
+    },
+    programs: noScheduleProgram('Russia Today', 'News'),
   },
 ];
 
