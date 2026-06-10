@@ -1672,7 +1672,7 @@ export const channels: Channel[] = [
     number: 106,
     name: 'KCM',
     category: 'Documentary',
-    logo: 'https://i.imgur.com/Xv8cQh0.png',
+    logo: 'https://i.imgur.com/oHEokmb.png',
     epgId: '',
     epgSource: 'none',
     stream: {
