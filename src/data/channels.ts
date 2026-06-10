@@ -801,7 +801,8 @@ export const channels: Channel[] = [
         clearkeys: { '564b3b1c781043c19242c66e348699c5': 'd3ad27d7fe1f14fb1a2cd5688549fbab' },
       },
     },
-    p
+    programs: noScheduleProgram('DreamWorks Tagalized', 'Kids'),
+  },
   {
     number: 49,
     name: 'Deutsche Welle',
