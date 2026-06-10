@@ -1676,7 +1676,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://i.imgur.com/oHEokmb.png',
+      url: 'https://slive.mana2.my/Kcm/index.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
@@ -1744,6 +1744,91 @@ export const channels: Channel[] = [
       type: 'hls',
     },
     programs: noScheduleProgram('TRT World', 'News'),
+  },
+  {
+    number: 111,
+    name: 'HISTORY',
+    category: 'Documentary',
+    logo: 'https://i.imgur.com/z9fsJ2L.png',
+    epgId: '401@starhubsg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://psycheflixcignal.csx067.workers.dev/crimeandinvestigation/manifest.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'a7724b7ca2604c33bb2e963a0319968a': '6f97e3e2eb2bade626e0281ec01d3675' },
+      },
+    },
+    programs: noScheduleProgram('Crime+Investigation', 'Documentary'),
+  },
+  {
+    number: 112,
+    name: 'Crime+Investigation',
+    category: 'Documentary',
+    logo: 'https://i.imgur.com/KeM5KlR.png',
+    epgId: '403@starhubsg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://psycheflixcignal.csx067.workers.dev/crimeandinvestigation/manifest.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '21e2843b561c4248b8ea487986a16d33': 'db6bb638ccdfc1ad1a3e98d728486801' },
+      },
+    },
+    programs: noScheduleProgram('Crime+Investigation', 'Documentary'),
+  },
+  {
+    number: 113,
+    name: 'Lifetime',
+    category: 'Documentary',
+    logo: 'https://i.imgur.com/LIrEjuN.png',
+    epgId: '514@starhubsg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://psycheflixcignal.csx067.workers.dev/lifetime/manifest.mpd',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'cf861d26e7834166807c324d57df5119': '64a81e30f6e5b7547e3516bbf8c647d0' },
+      },
+    },
+    programs: noScheduleProgram('Lifetime', 'Documentary'),
+  },
+  {
+    number: 114,
+    name: 'BBC Earth',
+    category: 'Documentary',
+    logo: 'https://i.imgur.com/GV3GAln.png',
+    epgId: '407@starhubsg',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/bbc-earth/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MTEwMTg0OCwiZXhwIjoxNzg4ODc3ODQ4LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODg4Nzc4NDgsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.xrFbkB-Cv4Em8IBAtJmwWzGFGKzNjLn6QDwuLdIkro0',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { '34ce95b60c424e169619816c5181aded': '0e2a2117d705613542618f58bf26fc8e' },
+      },
+    },
+    programs: noScheduleProgram('Lifetime', 'Documentary'),
+  },
+  {
+    number: 115,
+    name: 'BBC Lifestyle',
+    category: 'Documentary',
+    logo: 'https://i.imgur.com/ipKlaA4.png',
+    epgId: 'BBCLifestyle@astromy',
+    epgSource: 'none',
+    stream: {
+      url: 'https://converse.nathcreqtives.com/channels/8e1b37c9-5ba3-494a-98ce-05b25dddf9bc/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MTEwMTg0OCwiZXhwIjoxNzg4ODc3ODQ4LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODg4Nzc4NDgsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.xrFbkB-Cv4Em8IBAtJmwWzGFGKzNjLn6QDwuLdIkro0',
+      type: 'dash',
+      drm: {
+        scheme: 'clearkey',
+        clearkeys: { 'f429292dc744f284355308561577ac10': 'b12e1f894129c517dc8845baaeebec8a' },
+      },
+    },
+    programs: noScheduleProgram('Lifetime', 'Documentary'),
   },
   {
     number: 500,
