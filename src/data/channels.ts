@@ -57,10 +57,10 @@ export const noScheduleProgram = (channelName: string, genre: string): Program[]
 }];
 
 const musicProgram = (): Program[] => [{
-  title: 'NEEDY GIRL OVERDOSE - INTERNET ANGEL',
+  title: 'NEEDY GIRL OVERDOSE - きゅびびびびずむ',
   startTime: '00:00',
   endTime: '23:59',
-  description: "\"INTERNET ANGEL\" from the hit game NEEDY GIRL OVERDOSE (01.28.2024).",
+  description: "\"きゅびびびびずむ\" from the hit game NEEDY GIRL OVERDOSE (07.06.2024).",
   genre: 'Music',
   source: 'none',
 }];
@@ -83,7 +83,7 @@ export const channels: Channel[] = [
     epgId: 'none',
     epgSource: 'none',
     stream: {
-      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a25fa79bc82cd6f1abe33d8/main.m3u8',
+      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a296734e9db499e93e15c0f/main.m3u8',
       type: 'hls',
     },
     programs: musicProgram(),
