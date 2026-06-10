@@ -1748,7 +1748,7 @@ export const channels: Channel[] = [
     epgId: '',
     epgSource: 'none',
     stream: {
-      url: 'https://dash4.antik.sk/stream/hisi_brazzers_europe/playlist_cbcs.mpd',
+      url: 'https://dash3.antik.sk/stream/hisi_brazzers_europe/playlist_cbcs.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
