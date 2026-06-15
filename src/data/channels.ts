@@ -66,10 +66,10 @@ const musicProgram = (): Program[] => [{
 }];
 
 const mchProgram = (): Program[] => [{
-  title: 'M-CH',
+  title: 'Test Broadcast',
   startTime: '00:00',
   endTime: '23:59',
-  description: 'M-CH programming block.',
+  description: 'Test Broadcast programme of M-CH.',
   genre: 'Music',
   source: 'none',
 }];
@@ -1829,6 +1829,19 @@ export const channels: Channel[] = [
       },
     },
     programs: noScheduleProgram('BBC Lifestyle', 'Documentary'),
+  },
+  {
+    number: 116,
+    name: 'M-CH',
+    category: 'Music',
+    logo: 'https://i.imgur.com/YtNrJJx.jpeg',
+    epgId: 'none',
+    epgSource: 'none',
+    stream: {
+      url: 'https://lbgo.bozztv.com/ssh101/ssh101/starmchannel/playlist.m3u8',
+      type: 'hls',
+    },
+    programs: mchProgram(),
   },
   {
     number: 500,
