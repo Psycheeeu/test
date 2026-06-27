@@ -1034,11 +1034,11 @@ export const channels: Channel[] = [
     epgId: 'cg_animax_sd_new',
     epgSource: 'https://iptv-epg.org/files/epg-sg.xml',
     stream: {
-      url: 'https://converse.nathcreqtives.com/channels/animax/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MTEwMTg0OCwiZXhwIjoxNzg4ODc3ODQ4LCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODg4Nzc4NDgsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.xrFbkB-Cv4Em8IBAtJmwWzGFGKzNjLn6QDwuLdIkro0',
+      url: 'https://cdn.tivibro.my.id/phcorner/cors/index.php/https://ucdn.starhubgo.com/bpk-tv/AnimaxHD/output/manifest.mpd',
       type: 'dash',
       drm: {
         scheme: 'clearkey',
-        clearkeys: { '92032b0e41a543fb9830751273b8debd': '03f8b65e2af785b10d6634735dbe6c11' },
+        clearkeys: { '8421c9bc0b5241e59fe4377405a5305e': 'a8570f08dd26e5210041d85d7a84d6f4' },
       },
     },
     programs: noScheduleProgram('Animax', 'Foreign'),
@@ -1838,7 +1838,7 @@ export const channels: Channel[] = [
     epgId: 'none',
     epgSource: 'none',
     stream: {
-      url: 'https://lbgo.bozztv.com/ssh101/ssh101/starmchannel/playlist.m3u8',
+      url: 'https://183.bozztv.com/giatv/giatv-musicchannel/musicchannel/chunks.m3u8',
       type: 'hls',
     },
     programs: mchProgram(),
