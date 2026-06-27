@@ -66,7 +66,7 @@ const musicProgram = (): Program[] => [{
 }];
 
 const mchProgram = (): Program[] => [{
-  title: 'Test Broadcast',
+  title: 'M-CH Programming',
   startTime: '00:00',
   endTime: '23:59',
   description: 'Test Broadcast programme of M-CH.',
