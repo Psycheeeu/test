@@ -57,10 +57,10 @@ export const noScheduleProgram = (channelName: string, genre: string): Program[]
 }];
 
 const musicProgram = (): Program[] => [{
-  title: 'NEEDY GIRL OVERDOSE - きゅびびびびずむ',
+  title: 'Aiobahn +81『INTERNET ANGEL』',
   startTime: '00:00',
   endTime: '23:59',
-  description: "\"きゅびびびびずむ\" from the hit game NEEDY GIRL OVERDOSE (07.06.2024).",
+  description: "\"INTERNET ANGEL\" from the animation adaptation of the hit game NEEDY GIRL OVERDOSE (06.21.26).",
   genre: 'Music',
   source: 'none',
 }];
@@ -83,7 +83,7 @@ export const channels: Channel[] = [
     epgId: 'none',
     epgSource: 'none',
     stream: {
-      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a296734e9db499e93e15c0f/main.m3u8',
+      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a48c4c4e4e7cc890e3a2d62/main.m3u8',
       type: 'hls',
     },
     programs: musicProgram(),
