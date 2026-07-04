@@ -9,6 +9,7 @@ import { Channel, Program, getDummyEpgId } from './channels';
 export const EPG_SOURCES: { tag: string; url: string }[] = [
   { tag: 'jp', url: 'https://akariko.netgenx.site/epg/kai-epg.xml' },
   { tag: 'cignaltv', url: 'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/cignal_epg.xml' },
+  { tag: 'conv', url: 'https://wasabi-egg.b-cdn.net/ASIA_CONVERGE.xml' },
   { tag: 'ctc', url: 'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml' },
   { tag: 'astromy', url: 'https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml' },
   { tag: 'starhubsg', url: 'https://raw.githubusercontent.com/dbghelp/StarHub-TV-EPG/refs/heads/main/starhub.xml' },
