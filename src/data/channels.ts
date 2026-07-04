@@ -83,8 +83,8 @@ export const channels: Channel[] = [
     epgId: 'none',
     epgSource: 'none',
     stream: {
-      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a48c4c4e4e7cc890e3a2d62/main.m3u8',
-      type: 'hls',
+      url: 'https://video.gumlet.io/69097ed4aa9e79860d918dd9/6a48c4c4e4e7cc890e3a2d62/main.mpd',
+      type: 'dash',
     },
     programs: musicProgram(),
   },
