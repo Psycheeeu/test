@@ -7,7 +7,7 @@ import { Channel, Program, getDummyEpgId } from './channels';
 // If no '@tag' is specified, all sources are searched (original behaviour).
 
 export const EPG_SOURCES: { tag: string; url: string }[] = [
-  { tag: 'jp', url: 'https://akariko.netgenx.site/epg/kai-epg.xml' },
+  { tag: 'jp', url: 'https://haru.charandom.blog/epg/kai-epg.xml' },
   { tag: 'cignaltv', url: 'https://raw.githubusercontent.com/djdoolky76/Mediaquest-EPG/main/cignal_epg.xml' },
   { tag: 'conv', url: 'https://wasabi-egg.b-cdn.net/ASIA_CONVERGE.xml' },
   { tag: 'ctc', url: 'https://raw.githubusercontent.com/atone77721/CIGNAL_EPG/refs/heads/main/clickthecity_epg.xml' },
