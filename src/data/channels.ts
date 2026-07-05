@@ -96,7 +96,7 @@ export const channels: Channel[] = [
     epgId: 'gd01',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566013/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566013/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
@@ -109,7 +109,7 @@ export const channels: Channel[] = [
     epgId: 'gd02',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738565986/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738565986/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
@@ -122,7 +122,7 @@ export const channels: Channel[] = [
     epgId: 'gd03',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566023/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566023/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
@@ -135,7 +135,7 @@ export const channels: Channel[] = [
     epgId: 'gd04',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566030/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566030/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
@@ -148,7 +148,7 @@ export const channels: Channel[] = [
     epgId: 'gd05',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738565972/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738565972/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
@@ -161,7 +161,7 @@ export const channels: Channel[] = [
     epgId: 'gd06',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566048/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566048/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
@@ -174,7 +174,7 @@ export const channels: Channel[] = [
     epgId: 'gd06',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566054/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwc3ljaGVlZSIsImlhdCI6MTc4MjU3OTY0MCwiZXhwIjoxNzkwMzU1NjQwLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3OTAzNTU2NDAsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vcHN5Y2hlZWVmbGl4dXV1Lm5ldGxpZnkuYXBwIiwiaHR0cHM6Ly9wc3ljaGVmbGl4LnBhZ2VzLmRldiIsImh0dHBzOi8vcHN5Y2hlY3ViaWJpYmliaXNtLnZlcmNlbC5hcHAiXX0.HPOrT64Os500BwPlO4oavM-cAEwjlEzn37octaDUi9A',
+      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566054/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
       type: 'hls',
     },
     programs: noScheduleProgram('BS10 Premium', 'Japan'),
