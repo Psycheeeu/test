@@ -14,6 +14,7 @@ interface VideoOptionsProps {
   onClose: () => void;
   streamStatus: string;
   onOpenGuide: () => void;
+  guideOpen: boolean;
 }
 
 interface FocusItem {
@@ -71,7 +72,7 @@ function OptionButton({ active, focused, primary, secondary, focusId, onClick, o
   );
 }
 
-export default function VideoOptions({ visible, channel, settings, streamInfo, onSettingsChange, onRefresh, isFavorite, onToggleFavorite, onClose, streamStatus, onOpenGuide }: VideoOptionsProps) {
+export default function VideoOptions({ visible, channel, settings, streamInfo, onSettingsChange, onRefresh, isFavorite, onToggleFavorite, onClose, streamStatus, onOpenGuide, guideOpen }: VideoOptionsProps) {
   const [showPlayback, setShowPlayback] = useState(false);
   const [showDisplay, setShowDisplay] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
@@ -154,7 +155,7 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
   }, [focusItems.length]);
 
   useEffect(() => {
-    if (!visible) return;
+    if (!visible || guideOpen) return;
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowDown') {
         event.preventDefault();
@@ -171,7 +172,7 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [focusedIndex, focusItems, visible]);
+  }, [focusedIndex, focusItems, visible, guideOpen]);
 
   useEffect(() => {
     if (!visible || !focusedId) return;
