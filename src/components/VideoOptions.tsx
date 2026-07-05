@@ -13,6 +13,7 @@ interface VideoOptionsProps {
   onToggleFavorite: () => void;
   onClose: () => void;
   streamStatus: string;
+  onOpenGuide: () => void;
 }
 
 interface FocusItem {
@@ -70,11 +71,10 @@ function OptionButton({ active, focused, primary, secondary, focusId, onClick, o
   );
 }
 
-export default function VideoOptions({ visible, channel, settings, streamInfo, onSettingsChange, onRefresh, isFavorite, onToggleFavorite, onClose, streamStatus }: VideoOptionsProps) {
+export default function VideoOptions({ visible, channel, settings, streamInfo, onSettingsChange, onRefresh, isFavorite, onToggleFavorite, onClose, streamStatus, onOpenGuide }: VideoOptionsProps) {
   const [showPlayback, setShowPlayback] = useState(false);
   const [showDisplay, setShowDisplay] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
-  const [showEpg, setShowEpg] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(0);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -95,11 +95,13 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
   const displayLabel = settings.aspectRatio === 'contain' ? 'Fit to Screen' : settings.aspectRatio === 'cover' ? 'Fill' : settings.aspectRatio === 'fill' ? 'Stretch' : 'Original';
   const displaySummary = `${displayLabel} / ${streamInfo.resolution} / ${streamInfo.bandwidth}`;
   const statusLabel = streamStatus === 'playing' ? 'Reload source access' : streamStatus === 'loading' ? 'Loading manifest' : streamStatus === 'error' ? 'Stream access failed' : channel.stream ? 'Reload source access' : 'No stream on this channel';
+
   const currentProgram = getCurrentProgram(channel);
   const upcomingPrograms = useMemo(() => {
     const now = Date.now();
     const programs = channel.programs;
     if (!programs || programs.length === 0) return [];
+
     // For EPG programs with ms timestamps, filter to current + future
     const hasTimestamps = programs.some(p => typeof p.startMs === 'number');
     if (hasTimestamps) {
@@ -108,6 +110,7 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
     // For static programs (no timestamps), show all
     return programs;
   }, [channel.programs]);
+
   const epgSummary = upcomingPrograms.length > 0
     ? `${upcomingPrograms.length} program${upcomingPrograms.length !== 1 ? 's' : ''} — ${currentProgram.title}`
     : 'No schedule available';
@@ -138,15 +141,10 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
     }
 
     items.push({ id: 'pip', action: () => onSettingsChange({ pip: !settings.pip }) });
-    items.push({ id: 'epg', action: () => setShowEpg((value) => !value) });
-    if (showEpg) {
-      upcomingPrograms.forEach((_program, index) => {
-        items.push({ id: `epg:${index}`, action: () => {} });
-      });
-    }
+    items.push({ id: 'epg', action: onOpenGuide });
     items.push({ id: 'reload', action: onRefresh });
     return items;
-  }, [onRefresh, onSettingsChange, onToggleFavorite, settings.audioEnabled, settings.pip, settings.stats, showDisplay, showEpg, showPlayback, streamInfo.audioTracks, streamInfo.textTracks, streamInfo.variants, upcomingPrograms]);
+  }, [onRefresh, onSettingsChange, onToggleFavorite, settings.audioEnabled, settings.pip, settings.stats, showDisplay, showPlayback, streamInfo.audioTracks, streamInfo.textTracks, streamInfo.variants, upcomingPrograms, onOpenGuide]);
 
   const focusedId = focusItems[focusedIndex]?.id;
   const focusById = (id: string) => setFocusedIndex(Math.max(0, focusItems.findIndex((item) => item.id === id)));
@@ -205,59 +203,7 @@ export default function VideoOptions({ visible, channel, settings, streamInfo, o
             <SettingsRow focusId="display" title="Display" subtitle={displaySummary} focused={focusedId === 'display'} onMouseEnter={() => focusById('display')} onClick={() => setShowDisplay((value) => !value)} />
             {showDisplay && <div className="border-b border-white/10 bg-white/[0.025] px-5 py-3"><div className="mb-2 text-[9px] font-bold uppercase tracking-[0.18em] text-white/22">Display Size</div><div className="space-y-1.5"><OptionButton focusId="display:contain" active={settings.aspectRatio === 'contain'} focused={focusedId === 'display:contain'} primary="Fit to Screen" secondary="Default playback size" onMouseEnter={() => focusById('display:contain')} onClick={() => onSettingsChange({ aspectRatio: 'contain' })} /><OptionButton focusId="display:cover" active={settings.aspectRatio === 'cover'} focused={focusedId === 'display:cover'} primary="Fill" secondary="Crop edges" onMouseEnter={() => focusById('display:cover')} onClick={() => onSettingsChange({ aspectRatio: 'cover' })} /><OptionButton focusId="display:fill" active={settings.aspectRatio === 'fill'} focused={focusedId === 'display:fill'} primary="Stretch" secondary="Fill frame" onMouseEnter={() => focusById('display:fill')} onClick={() => onSettingsChange({ aspectRatio: 'fill' })} /><OptionButton focusId="display:none" active={settings.aspectRatio === 'none'} focused={focusedId === 'display:none'} primary="Original" secondary="Native video size" onMouseEnter={() => focusById('display:none')} onClick={() => onSettingsChange({ aspectRatio: 'none' })} /></div></div>}
             <SettingsRow focusId="pip" title="Picture in Picture" subtitle={settings.pip ? 'On' : 'Off'} focused={focusedId === 'pip'} onMouseEnter={() => focusById('pip')} onClick={() => onSettingsChange({ pip: !settings.pip })} />
-            <SettingsRow focusId="epg" title="Programme Guide" subtitle={epgSummary} accent="blue" focused={focusedId === 'epg'} onMouseEnter={() => focusById('epg')} onClick={() => setShowEpg((value) => !value)} />
-            {showEpg && (
-              <div className="border-b border-white/10 bg-white/[0.025] px-5 py-3">
-                <div className="mb-2 text-[9px] font-bold uppercase tracking-[0.18em] text-white/22">Upcoming</div>
-                {upcomingPrograms.length === 0 ? (
-                  <div className="py-3 text-center text-[10px] font-semibold text-white/25">No schedule data available</div>
-                ) : (
-                  <div className="space-y-1">
-                    {upcomingPrograms.map((program, index) => {
-                      const isCurrent = program.title === currentProgram.title && program.startTime === currentProgram.startTime;
-                      const isFocused = focusedId === `epg:${index}`;
-                      const hasTime = program.startTime !== '--:--';
-                      return (
-                        <div
-                          key={`${program.title}-${index}`}
-                          data-focus-id={`epg:${index}`}
-                          onMouseEnter={() => focusById(`epg:${index}`)}
-                          className={`rounded-lg px-2.5 py-2 transition-colors ${
-                            isFocused ? 'bg-white/10' : isCurrent ? 'bg-white/[0.06]' : 'hover:bg-white/[0.03]'
-                          }`}
-                        >
-                          <div className="flex items-center gap-2">
-                            {isCurrent && (
-                              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-500 live-pulse" />
-                            )}
-                            <span className={`truncate text-[11px] font-bold ${isCurrent ? 'text-white' : 'text-white/70'}`}>
-                              {program.title}
-                            </span>
-                          </div>
-                          <div className="mt-1 flex items-center gap-2">
-                            {hasTime && (
-                              <span className={`font-mono text-[9px] ${isCurrent ? 'text-sky-400/80' : 'text-white/28'}`}>
-                                {program.startTime} – {program.endTime}
-                              </span>
-                            )}
-                            {program.genre && (
-                              <span className="text-[8px] font-semibold uppercase tracking-wider text-white/20">
-                                {program.genre}
-                              </span>
-                            )}
-                          </div>
-                          {isFocused && program.description && (
-                            <div className="mt-1.5 text-[9px] leading-[1.5] text-white/35">
-                              {program.description}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            )}
+            <SettingsRow focusId="epg" title="Programme Guide" subtitle={epgSummary} accent="blue" focused={focusedId === 'epg'} onMouseEnter={() => focusById('epg')} onClick={onOpenGuide} />
             <SettingsRow focusId="reload" title="Reload" subtitle={statusLabel} accent="green" focused={focusedId === 'reload'} onMouseEnter={() => focusById('reload')} onClick={onRefresh} />
           </div>
         </div>
