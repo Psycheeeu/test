@@ -381,6 +381,7 @@ export default function App() {
         onClose={() => setShowVideoOptions(false)}
         streamStatus={streamStatus}
         onOpenGuide={() => setShowProgrammeGuide(true)}
+        guideOpen={showProgrammeGuide}
       />
 
       {/* Programme Guide Modal */}
