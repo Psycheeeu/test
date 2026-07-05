@@ -7,6 +7,7 @@ import { VideoPlayerHandle } from './components/VideoPlayer';
 import ChannelInfo from './components/ChannelInfo';
 import ChannelSidebar from './components/ChannelSidebar';
 import VideoOptions from './components/VideoOptions';
+import ProgrammeGuideModal from './components/ProgrammeGuideModal';
 
 export default function App() {
   const [currentChannelIndex, setCurrentChannelIndex] = useState(0);
@@ -14,6 +15,7 @@ export default function App() {
   const [channelSidebarMode, setChannelSidebarMode] = useState<'channels' | 'categories'>('channels');
   const [showVideoOptions, setShowVideoOptions] = useState(false);
   const [showChannelInfo, setShowChannelInfo] = useState(true);
+  const [showProgrammeGuide, setShowProgrammeGuide] = useState(false);
   const [introLoading, setIntroLoading] = useState(true);
   const [showNsfw, setShowNsfw] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -226,6 +228,14 @@ export default function App() {
   // Keyboard controls
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Programme Guide modal has highest priority
+      if (showProgrammeGuide) {
+        if (e.key === 'Escape') {
+          setShowProgrammeGuide(false);
+        }
+        return;
+      }
+
       if (pendingAdultIndex !== null) {
         return;
       }
@@ -279,6 +289,7 @@ export default function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [
+    showProgrammeGuide,
     showChannelSidebar,
     showVideoOptions,
     pendingAdultIndex,
@@ -369,7 +380,16 @@ export default function App() {
         onToggleFavorite={() => toggleFavorite()}
         onClose={() => setShowVideoOptions(false)}
         streamStatus={streamStatus}
+        onOpenGuide={() => setShowProgrammeGuide(true)}
       />
+
+      {/* Programme Guide Modal */}
+      {showProgrammeGuide && (
+        <ProgrammeGuideModal
+          channel={currentChannel}
+          onClose={() => setShowProgrammeGuide(false)}
+        />
+      )}
 
       {pendingAdultIndex !== null && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
