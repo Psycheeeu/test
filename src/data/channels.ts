@@ -99,7 +99,7 @@ export const channels: Channel[] = [
       url: 'https://akariko-bck1.sankuria.sbs/stream/jp/nhk_g/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('nhkg, 'Japan'),
+    programs: noScheduleProgram('nhkg', 'Japan'),
   },
   {
     number: 3,
