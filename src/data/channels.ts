@@ -96,10 +96,10 @@ export const channels: Channel[] = [
     epgId: 'gd01',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566013/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/nhk_g/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('nhkg, 'Japan'),
   },
   {
     number: 3,
@@ -109,10 +109,10 @@ export const channels: Channel[] = [
     epgId: 'gd02',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738565986/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/nhk_e/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('nhke', 'Japan'),
   },
   {
     number: 4,
@@ -122,10 +122,10 @@ export const channels: Channel[] = [
     epgId: 'gd03',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566023/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/ntv/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('ntv', 'Japan'),
   },
   {
     number: 5,
@@ -135,10 +135,10 @@ export const channels: Channel[] = [
     epgId: 'gd04',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566030/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/tbs/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('tbs', 'Japan'),
   },
   {
     number: 6,
@@ -148,10 +148,10 @@ export const channels: Channel[] = [
     epgId: 'gd05',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738565972/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/fuji_tv/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('fujitv', 'Japan'),
   },
   {
     number: 7,
@@ -161,10 +161,10 @@ export const channels: Channel[] = [
     epgId: 'gd06',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566048/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/tv_asahi/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('tvasahi', 'Japan'),
   },
   {
     number: 8,
@@ -174,10 +174,10 @@ export const channels: Channel[] = [
     epgId: 'gd06',
     epgSource: 'none',
     stream: {
-      url: 'https://converse.nathcreqtives.com/api/proxy/ch-1782738566054/index.m3u8?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJQSENPUk5FUiIsImlhdCI6MTc3OTUzNzM0MSwiZXhwIjoxNzg0NzIxMzQxLCJhY2NvdW50RXhwaXJlZCI6ZmFsc2UsImFjY291bnRFeHBpcmVzQXQiOjE3ODQ3MjEzNDEsImFsbG93ZWRPcmlnaW5zIjpbImh0dHBzOi8vKiJdfQ.gwh-25mE-Da2DHwyZ0byGWiMo8lBFOD4ve5AJ3dZkpU',
+      url: 'https://akariko-bck1.sankuria.sbs/stream/jp/tv_tokyo/stream-output.m3u8?mode=hls',
       type: 'hls',
     },
-    programs: noScheduleProgram('BS10 Premium', 'Japan'),
+    programs: noScheduleProgram('tvtokyo', 'Japan'),
   },
 ];
 
